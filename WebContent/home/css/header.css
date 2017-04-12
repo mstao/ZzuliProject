@@ -1,0 +1,113 @@
+*{
+    margin:0;	
+    padding:0;
+}
+body{
+    font-family:"Microsoft YaHei" ! important;
+	
+}
+.header{
+	margin:0px auto;
+	width:1000px;
+}
+.header-info{
+	height:205px;
+	background:url(../img/index.jpg) no-repeat ;
+	background-size:cover;
+}
+
+.navi{
+	float:left;	
+	width: 1000px;
+	background-color:#2F83AF;
+}
+.navi ul{
+	list-style-type:none;
+    margin-left:0px;
+    margin-top:0px;
+}
+.navi li{
+	text-align:left;
+	float:left;
+	
+}
+.navi > ul > li > a{
+	display:block;
+	background-color:#2F83AF;
+	border-right:1px solid gray;
+	line-height:2.5em;
+	padding:3px 10px 3px 10px;
+	color:#FFFFFF;
+	font-size:1.0em;
+	text-decoration:none;
+	
+}
+.navi > ul >li >a:hover{
+	color:#ecf9ff;
+	background-color:#543e29;
+}
+.navi > ul >li .selected{
+	color:#ecf9ff;
+	background-color:#e67e1f;
+}
+.navi > ul > li:hover > a {
+	color: #ffffff;
+	background-color: #543e29;
+}           
+.navi > ul > li:hover .dropdown-menu {
+	display: block;
+}
+.navi .dropdown-menu {
+	display: none;
+	position: absolute;
+	width: 84px;
+	font-size: 14px;
+	text-align: left;
+
+	background-color: #543e29;
+	
+}
+.navi  .dropdown-menu  a{
+	display: block;
+    text-decoration: none;
+	font-size: 16px;
+    padding-left: 10px;
+	color: #FFFFFF;
+	background:#543e29 ;
+	margin-top:3px;
+	margin-bottom: 5px;
+}
+
+
+
+.navi #localtime{
+	position: relative;
+	top: 13px;
+	left: 5px;
+	color: #FFFFFF;
+	font-size: 15px;
+}
+.footer{
+	background: #2F83AF;
+	color: #FFFFFF;
+	width: 1000px;
+	height: 60px;
+	float: left;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-top:10px ;
+}	
+.footer a{
+	color: #FFFFFF;
+	padding-left: 15px;
+	text-decoration: none;
+}
+.footer a:hover{
+	color: #36D1C4;
+	padding-left: 15px;
+	text-decoration: underline;
+}
+
+
+
+

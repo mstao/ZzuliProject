@@ -1,0 +1,322 @@
+.new_div1{
+     margin: auto;
+     margin-bottom: 10px;
+     width: 70%;
+     margin-top: 80px;
+ }
+  .new_div1 .new_div1_span{
+  	font-weight: bold;
+  	font-size: 17px;
+  }
+  .committee_intro_span{
+     margin-top:30px;
+  }
+  .new_div1 .add_list{
+  	margin-left: 10px;
+  	display:inline-block ;
+  	width: 35px;
+      height: 25px;
+      line-height: 25px;
+      padding-left: 5px;
+      color: #FFFFFF;
+      font-size: 14px;
+      background-color: #467B96;
+      border-radius: 5px;
+      border: 1px solid;
+      text-decoration: none;
+  }
+  .new_div2 p{
+  text-indent: 2em;
+  }
+  .new_div2{
+      width: 70%;
+      margin: auto;  
+      vertical-align: middle;
+  }
+ .update-userpassword-div{
+	margin:20px auto;
+	width:500px;
+  
+ }
+ .update-userpassword-div input{
+    border: 1px solid #D9D9D6;
+	border-radius: 3px;
+	width: 450px;
+	height: 35px;
+	margin-top:5px;
+	margin-bottom:25px;
+	font-size: 16px;
+	padding-left: 5px;
+ }
+ 
+.update-password-btn{
+	display:inline-block;
+	color:#fff;
+	background-color:#467B96;
+	height:22px;
+	width:65px;
+	padding-left:10px;
+	padding-top:3px;
+	padding-bottom:3px;
+	padding-right:10px;
+	text-decoration: none;
+	border-radius:3px;
+}
+.update-password-btn:hover{
+	display:inline-block;
+	color:#fff;
+	background-color:#1A5D7E;
+	height:22px;
+	width:65px;
+	padding-left:10px;
+	padding-top:3px;
+	padding-bottom:3px;
+	padding-right:10px;
+	text-decoration: none;
+	border-radius:3px;
+}
+ /* WebKit browsers */
+::-webkit-input-placeholder {
+	color: #777;
+}
+/* Mozilla Firefox 4 to 18 */
+:-moz-placeholder {
+	color: #777;
+	opacity: 1;
+}
+/* Mozilla Firefox 19+ */
+::-moz-placeholder {
+	color: #777;
+	opacity: 1;
+}
+/* Internet Explorer 10+ */
+:-ms-input-placeholder {
+	color: #777;
+}
+
+.intro-show-div ul{
+      margin-left:20px ;
+  }
+.intro-show-div ul li{
+    clear:both;
+	list-style-type: disc;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+.new_div3{
+    width: 70%;min-height: 115px;
+    margin: auto;margin-top: 10px;
+    background-color: white;
+}
+.new_div3 table{
+    width: 100%;
+    border-collapse: collapse;
+}
+.new_div3 table th{
+    height: 50px;
+    border-bottom: 2px aliceblue solid;
+    text-align: left;
+}
+.new_div3 table td{
+    height: 30px;
+    border-bottom: 1px aliceblue solid;
+}
+ .new_div3 table td a{
+	color: #467B96;
+	text-decoration: none;
+}
+.new_div3 table td a:hover{
+	color: #467B96;
+	text-decoration: underline;
+}
+.new_div2_input{
+    margin-top: 10px;
+    float: left;
+}
+.new_div2 ul{
+    padding: 0;
+    list-style-type: none;
+}
+.new_div2 ul li{
+    float: left;
+    position: relative;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+.new_div2 ul li a, .new_div2 ul li a:visited{
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    width: 60px;height: 25px;
+    border-radius: 3px;
+    line-height: 25px;
+    background-color: #D6D6D6;
+    font-size: 14px;
+    color: #000000;
+}
+.new_div2 ul li ul{
+    display: none;
+    margin-top: -7px;
+    margin-left: -5px;
+}
+.new_div2 ul li:hover ul{
+    display: block;
+    position: absolute;
+    top: 31px;
+    left: 0px
+}
+.new_div2 ul li:hover ul li a{
+    display: block;
+    background-color: gainsboro;
+    color: #000;
+}
+.new_div2 ul li:hover ul li a:hover{
+    background: #dfc184;
+    color: #000;
+}
+.draft-span{
+	display:inline-block;
+	margin-left:5px;
+	font-size:12px;
+	padding-left:3px;
+	padding-right:3px;
+	background:#ECECEC;
+	border-radius:3px;
+	color:#666666;
+}
+.intro-draft{
+	display:inline-block;
+	margin-left:5px;
+	font-size:15px;
+	padding-left:3px;
+	padding-right:3px;
+	background:#D9D9D6;
+	border-radius:3px;
+	color:#666666;
+}
+.new_text{
+    width: 200px;height: 25px;
+    float: right;
+    border: 1px solid #D9D9D6;
+    padding-left: 5px;
+}
+.new_select{
+    width: 80px;height: 30px;
+    margin-left: 10px;margin-right: 10px;
+    float: right;
+    height: 27px;
+}
+.new_button{
+    width: 50px;
+    height: 30px;
+    color: #FFFFFF;
+    background-color: #467B96;
+    border-radius: 5px;
+    float: right;
+    border: 1px solid;
+}
+.new_button:hover{
+	 width: 50px;
+    height: 30px;
+    color: #FFFFFF;
+    background-color: #1A5D7E;
+    border-radius: 5px;
+    float: right;
+}
+.clear{
+    clear: both;
+}
+
+.instrument-list .details-content-table1{
+	margin-left:0px;
+
+}
+.instrument-list .details-content-table1 td{
+	text-align: center;
+	float:left;
+	margin-top:5px;
+}
+.instrument-list .details-content-table1 td span{
+	display:block;
+}
+.instrument-list .details-content-table1 img{
+	width: 150px;height: 200px;
+	margin-left: 10px;margin-right: 10px;
+}
+/*分页样式*/
+.pager {
+	color:#666666;
+}
+.pager{ 
+	text-align:center; 
+	background:#f1f1f1; 
+	padding:7px 0;
+}
+.pager a{ 
+	margin:0 5px; 
+	border:#6185a2 solid 1px; 
+	display:inline-block; 
+	padding:2px 6px 1px; 
+	line-height:16px; 
+	background:#fff; 
+	color:#225599;
+	text-decoration:none;
+}
+.pager a:hover{ 
+	border:skyblue solid 1px; 	
+}
+
+/*气泡悬浮显示仪器图片信息*/
+#bubblemenu td{
+	cursor:pointer;
+}			            
+#bubblemenu td > .bubb-image {
+    width: 150px;
+    white-space:normal;
+    min-height: 100px;
+	position: absolute;
+    display: inline;
+    margin-left: 50px; 
+    padding: 5px;
+	visibility:hidden;
+    opacity: 0;
+    margin-top: -125px;
+	background: #ffffff;
+	font-size:1em;
+				
+	/* Setting the border-radius property for all Browsers */
+    -moz-border-radius: 5px; /* Firefox */
+    -webkit-border-radius: 5px; /* Safari and Chrome */
+    border-radius: 5px; /* Browsers that Support it like Opera */
+				
+	/* Setting the box-shadow property for all Browsers */
+    -moz-box-shadow: 0 0 8px gray; /* Firefox */
+    -webkit-box-shadow: 0 0 8px gray; /* Safari and Chrome */
+	filter: progid:DXImageTransform.Microsoft.Shadow(color='#272229', Direction=135, Strength=3); /* IE */
+    box-shadow: 0 0 8px gray; /* Browsers that Support it like Opera */
+
+	/* Setting the transition property for all Browsers */
+	-moz-transition: all 0.5s ease-in-out; /* Firefox */
+    -webkit-transition: all 0.5s ease-in-out; /* Safari and Chrome */
+    -o-transition: all 0.5s ease-in-out; /* Opera */
+    transition: all 0.5s ease-in-out; /* Browsers that Support it */
+
+				
+}          			
+#bubblemenu td:hover > .bubb-image{
+	white-space:normal;
+	visibility:visible;
+	/* 不透明度 */
+    opacity: 1;
+    margin-top: -120px;				
+	/* Setting the transition property for all Browsers */
+	-moz-transition: all 0.5s ease-in-out; /* Firefox */
+    -webkit-transition: all 0.5s ease-in-out; /* Safari and Chrome */
+    -o-transition: all 0.5s ease-in-out;  /* Opera */
+    transition: all 0.5s ease-in-out; /* Browsers that Support it */
+    
+}
+.bubb-image img{
+	width:150px;
+	height:180px;
+}

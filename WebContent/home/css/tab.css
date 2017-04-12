@@ -1,0 +1,12 @@
+ table {
+  border: none;
+  border-collapse: collapse;
+  max-width:730px;
+}
+ table td,
+ table th {
+  border: 1px solid #999;
+  padding: 3px 5px;
+  min-width: 50px;
+  height: 20px;
+}
