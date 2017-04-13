@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -146,21 +146,21 @@
 		</div>
 		<!--E 公告通知-->
 		
-		
-		<!--S 规章制度-->
-		<div class="rules small-div">
-			<span class="rules-span common-tag">&nbsp;${WEB_INTRO_RULES} ${WEB_ENGLISH_BLOCK_RULES}</span>
-		    <div class="example-img"><img src="${pageContext.request.contextPath}/home/img/rules.jpg"/></div>
+	    <!--S 学术动态 -->
+		<div class="academic small-div">
+			<span class="academic-span  common-tag">&nbsp;学术动态  ACADEMIC</span>
+		    <div class="example-img"><img src="${pageContext.request.contextPath}/home/img/academic.jpg"/></div>
 		    <div class="small-div-content">
 		    	<ul>
-		    	<c:forEach items="${rules}" var="rules_info"> 
-		    		<li><a href="${pageContext.request.contextPath}/ruledetails.do?rid=${rules_info.id}" target="_blank" class="block_a">${rules_info.rule_title}</a><span class="pub-data sub-time">[${rules_info.add_time}]</span><img src="${pageContext.request.contextPath}/home/img/hot.gif"/> </li>		    		
-		    	</c:forEach>
+		    		<c:forEach items="${academic}" var="academic_info">        
+		    		<li><a href="${pageContext.request.contextPath}/newsdetails.do?id=${academic_info.id}&type=${academic_info.type_flag}" target="_blank" class="block_a">${academic_info.item_title}</a><span class="pub-data sub-time">[${academic_info.add_time}]</span><img src="${pageContext.request.contextPath}/home/img/hot.gif"/> </li>
+		    		</c:forEach>
 		    	</ul>
 		    </div>
-		    <div class="look-more"><span><a href="${pageContext.request.contextPath}/rules.do?p=1">查看更多<img src="${pageContext.request.contextPath}/home/img/more.png"/></a></span></div>
+		    <div class="look-more"><span><a href="${pageContext.request.contextPath}/news.do?type=xgt&p=1">查看更多<img src="${pageContext.request.contextPath}/home/img/more.png"/></a></span></div>
 		</div>
-		<!--E 规章制度 -->
+		
+		<!--S 学术动态  -->
 		
 		<!--S 研究亮点-->
 		<div class="research-highlights small-div">
@@ -178,11 +178,26 @@
 		</div>
 		<!--E 研究亮点-->
 		
+		<!--S 规章制度-->
+		<div class="rules small-div">
+			<span class="rules-span common-tag">&nbsp;${WEB_INTRO_RULES} ${WEB_ENGLISH_BLOCK_RULES}</span>
+		    <div class="example-img"><img src="${pageContext.request.contextPath}/home/img/rules.jpg"/></div>
+		    <div class="small-div-content">
+		    	<ul>
+		    	<c:forEach items="${rules}" var="rules_info"> 
+		    		<li><a href="${pageContext.request.contextPath}/ruledetails.do?rid=${rules_info.id}" target="_blank" class="block_a">${rules_info.rule_title}</a><span class="pub-data sub-time">[${rules_info.add_time}]</span><img src="${pageContext.request.contextPath}/home/img/hot.gif"/> </li>		    		
+		    	</c:forEach>
+		    	</ul>
+		    </div>
+		    <div class="look-more"><span><a href="${pageContext.request.contextPath}/rules.do?p=1">查看更多<img src="${pageContext.request.contextPath}/home/img/more.png"/></a></span></div>
+		</div>
+		<!--E 规章制度 -->
+		
 		<!--S 在研项目-->
-		<div class="research-project small-div">
+		<%-- <div class="research-project small-div">
 			<span class="research-project-span common-tag">&nbsp;${WEB_RESEARCH_PROJECT} ${WEB_ENGLISH_BLOCK_PROJECT}</span>
 		    <!--<div class="example-img"><img src="img/project.png"/></div>-->
-		    <div class="example-research"><%--主体结构，请用此类名调用插件，此类名可自定义--%>
+		    <div class="example-research">主体结构，请用此类名调用插件，此类名可自定义
 			<ul>
 			 <c:forEach items="${sliderproject}" var="s_project_list">  
 		     	<li class="slider-li"><a href="${pageContext.request.contextPath}/researchdetails.do?id=${s_project_list.id}&type=kzx" target="_blank" ><img src="" alt="${s_project_list.item_title}"  /></a><div class="hide-content-slider" style="visibility: hidden;">${s_project_list.item_content}</div></li>
@@ -198,7 +213,7 @@
 		    	</ul>
 		    </div>
 		    <div class="look-more"><span><a href="${pageContext.request.contextPath}/research.do?type=kzx&p=1">查看更多<img src="${pageContext.request.contextPath}/home/img/more.png"/></a></span></div>
-		</div>
+		</div> --%>
 		<!--E 在研项目-->
 		<div class="clear"></div>
 		
@@ -236,7 +251,7 @@ $(function(){
         
         //仪器展示
         $('.instrument-content').liMarquee({
-        	  direction: 'left',//向上滚动
+        	  direction: 'left',//向左滚动
         });
         //新闻轮播
         $(".slider").YuxiSlider({
@@ -248,16 +263,7 @@ $(function(){
 			mousewheel:true, //是否开启鼠标滚轮控制
 			direkey:false //是否开启左右箭头方向控制
 		});
-		//研究项目轮播
-        $(".example-research").YuxiSlider({
-			width:235, //容器宽度
-			height:131, //容器高度
-			control:$('.control'), //绑定控制按钮
-			during:3000, //间隔3秒自动滑动
-			speed:800, //移动速度0.8秒
-			mousewheel:true, //是否开启鼠标滚轮控制
-			direkey:false //是否开启左右箭头方向控制
-		});
+	
 });
 
 

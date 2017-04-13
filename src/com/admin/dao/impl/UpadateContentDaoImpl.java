@@ -689,4 +689,282 @@ public class UpadateContentDaoImpl implements IUpdateContentDao {
 		}	
 	}
 
+	/**
+	 * 修改国家自然科学基金
+	 */
+	@Override
+	public boolean updateFoundationInfo(int id, String name, String number, String person, double outlay, String time,
+			int is_publish) {
+		// TODO Auto-generated method stub
+		Statement stmt=null;
+		Connection con=(Connection) DB.getConn();
+		//获取当前时间
+		String c_date=GetDateUtil.getData();
+		try{
+		con.setAutoCommit(false);
+		stmt=(Statement) DB.getStmt(con);   
+		String sql1="update sys_project_foundation set name='"+name+"',number='"+number+"',person='"+person+"',outlay='"+outlay+"',time='"+time+"',add_time='"+c_date+"',is_publish='"+is_publish+"'  where id='"+id+"'";
+		stmt.executeUpdate(sql1);
+		con.commit();
+
+		return true;
+		}catch(Exception e){
+			try {
+				con.rollback();
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			e.printStackTrace();
+			return false;
+		}finally{
+			try {
+				con.setAutoCommit(true);
+				con.close();
+				stmt.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}	
+	}
+
+	/**
+	 * 修改省部级项目
+	 */
+	@Override
+	public boolean updateProvincialInfo(int id, String nameid, String person, String source, double outlay, String time,
+			int is_publish) {
+		// TODO Auto-generated method stub
+		Statement stmt=null;
+		Connection con=(Connection) DB.getConn();
+		//获取当前时间
+		String c_date=GetDateUtil.getData();
+		try{
+		con.setAutoCommit(false);
+		stmt=(Statement) DB.getStmt(con);   
+		String sql1="update sys_project_provincial set nameid='"+nameid+"',person='"+person+"',source='"+source+"',outlay='"+outlay+"',time='"+time+"',add_time='"+c_date+"',is_publish='"+is_publish+"'  where id='"+id+"'";
+		stmt.executeUpdate(sql1);
+		con.commit();
+
+		return true;
+		}catch(Exception e){
+			try {
+				con.rollback();
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			e.printStackTrace();
+			return false;
+		}finally{
+			try {
+				con.setAutoCommit(true);
+				con.close();
+				stmt.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}	
+	}
+
+	/**
+	 * 修改横向合作
+	 */
+	@Override
+	public boolean updateHorizontalCooperationInfo(int id, String name, String cooperator, String person, double outlay,
+			String time, int is_publish) {
+		// TODO Auto-generated method stub
+		Statement stmt=null;
+		Connection con=(Connection) DB.getConn();
+		//获取当前时间
+		String c_date=GetDateUtil.getData();
+		try{
+		con.setAutoCommit(false);
+		stmt=(Statement) DB.getStmt(con);   
+		String sql1="update sys_project_horizontal_cooperation set name='"+name+"',cooperator='"+cooperator+"',person='"+person+"',outlay='"+outlay+"',time='"+time+"',add_time='"+c_date+"',is_publish='"+is_publish+"'  where id='"+id+"'";
+		stmt.executeUpdate(sql1);
+		con.commit();
+
+		return true;
+		}catch(Exception e){
+			try {
+				con.rollback();
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			e.printStackTrace();
+			return false;
+		}finally{
+			try {
+				con.setAutoCommit(true);
+				con.close();
+				stmt.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}	
+	}
+
+	/**
+	 * 修改奖励
+	 */
+	@Override
+	public boolean updateRewardsInfo(int id, String name, String awards, String person, String time, int is_publish) {
+		// TODO Auto-generated method stub
+		Statement stmt=null;
+		Connection con=(Connection) DB.getConn();
+		//获取当前时间
+		String c_date=GetDateUtil.getData();
+		try{
+		con.setAutoCommit(false);
+		stmt=(Statement) DB.getStmt(con);   
+		String sql1="update sys_result_awards set name='"+name+"',awards='"+awards+"',person='"+person+"',time='"+time+"',add_time='"+c_date+"',is_publish='"+is_publish+"'  where id='"+id+"'";
+		stmt.executeUpdate(sql1);
+		con.commit();
+
+		return true;
+		}catch(Exception e){
+			try {
+				con.rollback();
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			e.printStackTrace();
+			return false;
+		}finally{
+			try {
+				con.setAutoCommit(true);
+				con.close();
+				stmt.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}	
+	}
+
+	/**
+	 * 修改奖励
+	 */
+	@Override
+	public boolean updatePatentInfo(int id, String name, String style, String person, String time, int is_publish) {
+		// TODO Auto-generated method stub
+		Statement stmt=null;
+		Connection con=(Connection) DB.getConn();
+		//获取当前时间
+		String c_date=GetDateUtil.getData();
+		try{
+		con.setAutoCommit(false);
+		stmt=(Statement) DB.getStmt(con);   
+		String sql1="update sys_result_patent set name='"+name+"',style='"+style+"',person='"+person+"',time='"+time+"',add_time='"+c_date+"',is_publish='"+is_publish+"'  where id='"+id+"'";
+		stmt.executeUpdate(sql1);
+		con.commit();
+
+		return true;
+		}catch(Exception e){
+			try {
+				con.rollback();
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			e.printStackTrace();
+			return false;
+		}finally{
+			try {
+				con.setAutoCommit(true);
+				con.close();
+				stmt.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}	
+	}
+
+	/**
+	 * 修改论文
+	 */
+	@Override
+	public boolean updateThesisInfo(int id, String style, String author, String name, String publication_division,
+			String page_number, int is_publish) {
+		// TODO Auto-generated method stub
+		Statement stmt=null;
+		Connection con=(Connection) DB.getConn();
+		//获取当前时间
+		String c_date=GetDateUtil.getData();
+		try{
+		con.setAutoCommit(false);
+		stmt=(Statement) DB.getStmt(con);   
+		String sql1="update sys_result_thesis set style='"+style+"',author='"+author+"',name='"+name+"',publication_division='"+publication_division+"',page_number='"+page_number+"',add_time='"+c_date+"',is_publish='"+is_publish+"'  where id='"+id+"'";
+		stmt.executeUpdate(sql1);
+		con.commit();
+
+		return true;
+		}catch(Exception e){
+			try {
+				con.rollback();
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			e.printStackTrace();
+			return false;
+		}finally{
+			try {
+				con.setAutoCommit(true);
+				con.close();
+				stmt.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}	
+	}
+
+	/**
+	 * 修改鉴定
+	 */
+	@Override
+	public boolean updateIdentificationInfo(int id, String name, String identification_number, String person,
+			String time, String level, int is_publish) {
+		// TODO Auto-generated method stub
+		Statement stmt=null;
+		Connection con=(Connection) DB.getConn();
+		//获取当前时间
+		String c_date=GetDateUtil.getData();
+		try{
+		con.setAutoCommit(false);
+		stmt=(Statement) DB.getStmt(con);   
+		String sql1="update sys_result_identification set name='"+name+"',identification_number='"+identification_number+"',person='"+person+"',time='"+time+"',level='"+level+"',add_time='"+c_date+"',is_publish='"+is_publish+"'  where id='"+id+"'";
+		stmt.executeUpdate(sql1);
+		con.commit();
+
+		return true;
+		}catch(Exception e){
+			try {
+				con.rollback();
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			e.printStackTrace();
+			return false;
+		}finally{
+			try {
+				con.setAutoCommit(true);
+				con.close();
+				stmt.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}	
+	}
+
 }

@@ -22,6 +22,7 @@ public class ResultThesisBean implements Serializable{
 	private String publication_division;
 	private String page_number;
 	private String add_time;
+	private int is_publish;
 	
 	public int getId() {
 		return id;
@@ -64,6 +65,12 @@ public class ResultThesisBean implements Serializable{
 	}
 	public void setAdd_time(String add_time) {
 		this.add_time = add_time;
+	}
+	public int getIs_publish() {
+		return is_publish;
+	}
+	public void setIs_publish(int is_publish) {
+		this.is_publish = is_publish;
 	}
 	
 	

@@ -75,7 +75,11 @@ public class LoadHomePageInfoServlet extends HttpServlet {
 		ArrayList<NewsBean> slidernews=(ArrayList<NewsBean>) new AllInfoDaoImpl<NewsBean>().getSliderNewsInfo("xsx");
 		
 		//获取轮播在研项目
-		ArrayList<ResearchBean> sliderproject=(ArrayList<ResearchBean>) new AllInfoDaoImpl<ResearchBean>().getSliderProject("kzx");
+		//ArrayList<ResearchBean> sliderproject=(ArrayList<ResearchBean>) new AllInfoDaoImpl<ResearchBean>().getSliderProject("kzx");
+		
+		//获取学术动态
+		ArrayList<NewsBean> academic=(ArrayList<NewsBean>) new AllSimpleInfoDaoImpl<NewsBean>().getSimpleNewsInfo("xxb",0,5);
+		
 		
 		//获取大型仪器的展览信息
 		ArrayList<InstrumentsBean> instrument_show=(ArrayList<InstrumentsBean>) new AllSimpleInfoDaoImpl<InstrumentsBean>().getSimpleInstrumentInfo(0, CommonConfig.INSTRUMENT_PAGESIZE);
@@ -93,7 +97,7 @@ public class LoadHomePageInfoServlet extends HttpServlet {
 	    request.setAttribute("project", project);
 	    
 	    request.setAttribute("slidernews", slidernews);
-	    request.setAttribute("sliderproject", sliderproject);
+	    request.setAttribute("academic", academic);
 	    request.setAttribute("instrument_show",instrument_show);
 		/*response.sendRedirect("./home/index.html");*/
 		request.getRequestDispatcher("./home/index.jsp").forward(request, response); 

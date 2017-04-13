@@ -15,11 +15,18 @@ import com.home.web.service.CommitteeBean;
 import com.home.web.service.ContactBean;
 import com.home.web.service.EmployBean;
 import com.home.web.service.FileBean;
+import com.home.web.service.FoundationbBean;
+import com.home.web.service.HorizontalCooperationBean;
 import com.home.web.service.InstrumentRuleBean;
 import com.home.web.service.InstrumentsBean;
 import com.home.web.service.NewsBean;
 import com.home.web.service.PersonBean;
+import com.home.web.service.ProvincialProjectBean;
 import com.home.web.service.ResearchBean;
+import com.home.web.service.ResultIdentificationBean;
+import com.home.web.service.ResultPatentBean;
+import com.home.web.service.ResultRewardsBean;
+import com.home.web.service.ResultThesisBean;
 import com.home.web.service.RulesBean;
 
 /** 
@@ -557,6 +564,364 @@ public class AdminSimpleInfoDaoImpl<T> implements IAdminAllSimpleInfoDao<T> {
 			}
 		}
 		return (List<T>) committee;
+	}
+
+	/**
+	 * 获取国家自然科学基金信息
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<T> getSimpleFoundationInfo(int position, int item_per_page) {
+		// TODO Auto-generated method stub
+		ResultSet rs=null;
+		PreparedStatement ps=null;
+		Connection con=DB.getConn();
+	    String sql1="select si.* from sys_project_foundation si  order by si.add_time desc limit ?,?";
+	    ps=DB.getPstmt(con, sql1);
+	    
+	    try {
+	    	ps.setInt(1, position);
+			ps.setInt(2, item_per_page);
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+	    rs=DB.getRs(ps);
+	    List<FoundationbBean> foundation=new ArrayList<FoundationbBean>();
+	    try {
+			while(rs.next()){
+				FoundationbBean fb=new FoundationbBean();
+				fb.setId(rs.getInt("id"));
+				fb.setName(rs.getString("name"));
+				fb.setNumber(rs.getString("number"));
+				fb.setOutlay(rs.getDouble("outlay"));
+				fb.setPerson(rs.getString("person"));
+				fb.setTime(rs.getString("time"));
+				fb.setIs_publish(rs.getInt("is_publish"));
+				foundation.add(fb);
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			DB.close(con);
+			DB.close(rs);
+			try {
+				ps.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return (List<T>) foundation;
+	
+	}
+
+	/**
+	 * 获取省部级重点（大）项目
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<T> getSimpleProvincialInfo(int position, int item_per_page) {
+		// TODO Auto-generated method stub
+		ResultSet rs=null;
+		PreparedStatement ps=null;
+		Connection con=DB.getConn();
+	    String sql1="select si.* from sys_project_provincial si  order by si.add_time desc limit ?,?";
+	    ps=DB.getPstmt(con, sql1);
+	    
+	    try {
+	    	ps.setInt(1, position);
+			ps.setInt(2, item_per_page);
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+	    rs=DB.getRs(ps);
+	    ArrayList<ProvincialProjectBean> provincial=new ArrayList<ProvincialProjectBean>();
+	    try {
+			while(rs.next()){
+				ProvincialProjectBean pb=new ProvincialProjectBean();
+				pb.setId(rs.getInt("id"));
+				pb.setNameid(rs.getString("nameid"));
+				pb.setOutlay(rs.getDouble("outlay"));
+				pb.setPerson(rs.getString("person"));
+				pb.setSource(rs.getString("source"));
+				pb.setTime(rs.getString("time"));
+				pb.setIs_publish(rs.getInt("is_publish"));
+				provincial.add(pb);
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			DB.close(con);
+			DB.close(rs);
+			try {
+				ps.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return (List<T>) provincial;
+	}
+
+	/**
+	 * 获取横向合作信息
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<T> getSimpleHorizontalCooperationInfo(int position, int item_per_page) {
+		// TODO Auto-generated method stub
+		ResultSet rs=null;
+		PreparedStatement ps=null;
+		Connection con=DB.getConn();
+	    String sql1="select si.* from sys_project_horizontal_cooperation si  order by si.add_time desc limit ?,?";
+	    ps=DB.getPstmt(con, sql1);
+	    
+	    try {
+	    	ps.setInt(1, position);
+			ps.setInt(2, item_per_page);
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+	    rs=DB.getRs(ps);
+	    ArrayList<HorizontalCooperationBean> cooperation=new ArrayList<HorizontalCooperationBean>();
+		
+	    try {
+			while(rs.next()){
+				HorizontalCooperationBean hb=new HorizontalCooperationBean();
+				hb.setId(rs.getInt("id"));
+				hb.setName(rs.getString("name"));
+				hb.setOutlay(rs.getDouble("outlay"));
+				hb.setPerson(rs.getString("person"));
+				hb.setCooperator(rs.getString("cooperator"));
+				hb.setTime(rs.getString("time"));
+				hb.setIs_publish(rs.getInt("is_publish"));
+				cooperation.add(hb);
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			DB.close(con);
+			DB.close(rs);
+			try {
+				ps.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return (List<T>) cooperation;
+	}
+
+	/**
+	 * 获取奖励信息
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<T> getSimpleRewardsInfo(int position, int item_per_page) {
+		// TODO Auto-generated method stub
+		ResultSet rs=null;
+		PreparedStatement ps=null;
+		Connection con=DB.getConn();
+	    String sql1="select si.* from sys_result_awards si  order by si.add_time desc limit ?,?";
+	    ps=DB.getPstmt(con, sql1);
+	    
+	    try {
+	    	ps.setInt(1, position);
+			ps.setInt(2, item_per_page);
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+	    rs=DB.getRs(ps);
+	    ArrayList<ResultRewardsBean> rewards=new ArrayList<ResultRewardsBean>();
+	    try {
+			while(rs.next()){
+				ResultRewardsBean rb=new ResultRewardsBean();
+				rb.setId(rs.getInt("id"));
+				rb.setName(rs.getString("name"));
+				rb.setPerson(rs.getString("person"));
+				rb.setAwards(rs.getString("awards"));
+				rb.setTime(rs.getString("time"));
+				rb.setIs_publish(rs.getInt("is_publish"));
+				rewards.add(rb);
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			DB.close(con);
+			DB.close(rs);
+			try {
+				ps.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return (List<T>) rewards;
+	}
+
+	/**
+	 * 获取专利信息
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<T> getSimplePatentInfo(int position, int item_per_page) {
+		// TODO Auto-generated method stub
+		ResultSet rs=null;
+		PreparedStatement ps=null;
+		Connection con=DB.getConn();
+	    String sql1="select si.* from sys_result_patent si  order by si.add_time desc limit ?,?";
+	    ps=DB.getPstmt(con, sql1);
+	    
+	    try {
+	    	ps.setInt(1, position);
+			ps.setInt(2, item_per_page);
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+	    rs=DB.getRs(ps);
+	    ArrayList<ResultPatentBean> patent=new ArrayList<ResultPatentBean>();
+	    try {
+			while(rs.next()){
+				ResultPatentBean rb=new ResultPatentBean();
+				rb.setId(rs.getInt("id"));
+				rb.setName(rs.getString("name"));
+				rb.setPerson(rs.getString("person"));
+				rb.setStyle(rs.getString("style"));
+				rb.setTime(rs.getString("time"));
+				rb.setIs_publish(rs.getInt("is_publish"));
+				patent.add(rb);
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			DB.close(con);
+			DB.close(rs);
+			try {
+				ps.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return (List<T>) patent;
+	}
+
+	/**
+	 * 获取鉴定信息
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<T> getSimpleIdentificationInfo(int position, int item_per_page) {
+		// TODO Auto-generated method stub
+		ResultSet rs=null;
+		PreparedStatement ps=null;
+		Connection con=DB.getConn();
+	    String sql1="select si.* from sys_result_identification si  order by si.add_time desc limit ?,?";
+	    ps=DB.getPstmt(con, sql1);
+	    
+	    try {
+	    	ps.setInt(1, position);
+			ps.setInt(2, item_per_page);
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+	    rs=DB.getRs(ps);
+	    ArrayList<ResultIdentificationBean> identification=new ArrayList<ResultIdentificationBean>();
+	    try {
+			while(rs.next()){
+				ResultIdentificationBean rb=new ResultIdentificationBean();
+				rb.setId(rs.getInt("id"));
+				rb.setName(rs.getString("name"));
+				rb.setPerson(rs.getString("person"));
+				rb.setTime(rs.getString("time"));
+				rb.setLevel(rs.getString("level"));
+				rb.setIdentification_number(rs.getString("identification_number"));
+				rb.setIs_publish(rs.getInt("is_publish"));
+				identification.add(rb);
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			DB.close(con);
+			DB.close(rs);
+			try {
+				ps.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return (List<T>) identification;
+	}
+
+	/**
+	 * 获取论文信息
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<T> getSimpleThesisInfo(int position, int item_per_page) {
+		// TODO Auto-generated method stub
+		ResultSet rs=null;
+		PreparedStatement ps=null;
+		Connection con=DB.getConn();
+	    String sql1="select si.* from sys_result_thesis si  order by si.add_time desc limit ?,?";
+	    ps=DB.getPstmt(con, sql1);
+	    
+	    try {
+	    	ps.setInt(1, position);
+			ps.setInt(2, item_per_page);
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+	    rs=DB.getRs(ps);
+	    ArrayList<ResultThesisBean> thesis=new ArrayList<ResultThesisBean>();
+	    
+	    try {
+			while(rs.next()){
+				ResultThesisBean rb=new ResultThesisBean();
+				rb.setId(rs.getInt("id"));
+				rb.setName(rs.getString("name"));
+				rb.setAuthor(rs.getString("author"));
+				rb.setPage_number(rs.getString("page_number"));
+				rb.setPublication_division(rs.getString("publication_division"));
+				rb.setStyle(rs.getString("style"));
+				rb.setIs_publish(rs.getInt("is_publish"));
+				thesis.add(rb);
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			DB.close(con);
+			DB.close(rs);
+			try {
+				ps.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return (List<T>) thesis;
 	}
 
 	

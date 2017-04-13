@@ -63,9 +63,9 @@ $(function(){
                  	  <ul class="dropdown-menu follow">
 							<li><a href="${pageContext.request.contextPath}/researchlist.ado?type=kpj&p=1">${WEB_RESEARCH_PINGTAI}</a></li>
 							<li><a href="${pageContext.request.contextPath}/researchlist.ado?type=kyl&p=1">${WEB_RESEARCH_LIANGDIAN}</a></li>
-							<li><a href="${pageContext.request.contextPath}/foundation.do" >${WEB_RESEARCH_PROJECT_FOUNDATION}</a></li>
-							<li><a href="${pageContext.request.contextPath}/provincial.do" >${WEB_RESEARCH_PROJECT_PROVINCIAL}</a></li>
-							<li><a href="${pageContext.request.contextPath}/horizontalCooperation.do" >${WEB_RESEARCH_PROJECT_HORIZONTAL_COOPERATION}</a></li>
+							<li><a href="${pageContext.request.contextPath}/showfoundation.ado?p=1" >${WEB_RESEARCH_PROJECT_FOUNDATION}</a></li>
+							<li><a href="${pageContext.request.contextPath}/showprovincial.ado?p=1" >${WEB_RESEARCH_PROJECT_PROVINCIAL}</a></li>
+							<li><a href="${pageContext.request.contextPath}/showcooperation.ado?p=1" >${WEB_RESEARCH_PROJECT_HORIZONTAL_COOPERATION}</a></li>
 					</ul>
                  </li>
                  
@@ -89,10 +89,10 @@ $(function(){
                  
                  <li><a href="javascript:void(0);">${WEB_RESULT_NAVI}</a>
                  	<ul class="dropdown-menu follow">
-							<li><a href="${pageContext.request.contextPath}/reward.do" >${WEB_RESULT_REWRADS}</a></li>
-						    <li><a href="${pageContext.request.contextPath}/patent.do" >${WEB_RESULT_ZHUANLI}</a></li>
-							<li><a href="${pageContext.request.contextPath}/identification.do" >${WEB_RESULT_JIANDING}</a></li>
-							<li><a href="${pageContext.request.contextPath}/thesis.do" >${WEB_RESULT_LUNWEN}</a></li>
+							<li><a href="${pageContext.request.contextPath}/showrewards.ado?p=1" >${WEB_RESULT_REWRADS}</a></li>
+						    <li><a href="${pageContext.request.contextPath}/showpatent.ado?p=1" >${WEB_RESULT_ZHUANLI}</a></li>
+							<li><a href="${pageContext.request.contextPath}/showidentification.ado?p=1" >${WEB_RESULT_JIANDING}</a></li>
+							<li><a href="${pageContext.request.contextPath}/showthesis.ado?p=1" >${WEB_RESULT_LUNWEN}</a></li>
 					</ul>
                  </li>
                  <li><a href="javascript:void(0);">${WEB_INSTRUMENT_NAVI}</a>

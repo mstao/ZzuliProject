@@ -320,4 +320,201 @@ public class CountInfoDao {
 		}
     	return count;
     }
+    
+    /**
+     * 
+    * @Title: getFoundationCount
+    * @Description: TODO 获取国家自然科学基金项目数量
+    * @param @return    设定文件
+    * @return int    返回类型
+    * @throws
+     */
+    public int getFoundationCount(){
+    	int count = 0;
+    	ResultSet rs=null;
+	    DBMeans ss=new DBMeans();
+	    String sql="select count(*) from sys_project_foundation";
+	    rs=ss.Search(sql);
+	    try {
+			while(rs.next()){
+				count=rs.getInt(1);
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			ss.closeAll();
+		}
+    	return count;
+    }
+    
+    /**
+     * 
+    * @Title: getProvincialCount
+    * @Description: TODO 获取省部级重大项目 列表
+    * @param @return    设定文件
+    * @return int    返回类型
+    * @throws
+     */
+    public int getProvincialCount(){
+    	int count = 0;
+    	ResultSet rs=null;
+	    DBMeans ss=new DBMeans();
+	    String sql="select count(*) from sys_project_provincial";
+	    rs=ss.Search(sql);
+	    try {
+			while(rs.next()){
+				count=rs.getInt(1);
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			ss.closeAll();
+		}
+    	return count;
+    }
+    
+    /**
+     * 
+    * @Title: getHorizontalCooperationCount
+    * @Description: TODO 横向合作  数量
+    * @param @return    设定文件
+    * @return int    返回类型
+    * @throws
+     */
+    public int getHorizontalCooperationCount(){
+    	int count = 0;
+    	ResultSet rs=null;
+	    DBMeans ss=new DBMeans();
+	    String sql="select count(*) from sys_project_horizontal_cooperation";
+	    rs=ss.Search(sql);
+	    try {
+			while(rs.next()){
+				count=rs.getInt(1);
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			ss.closeAll();
+		}
+    	return count;
+    }
+    
+    
+    /**
+     * 
+    * @Title: getRewardCount
+    * @Description: TODO 获取 奖励数量
+    * @param @return    设定文件
+    * @return int    返回类型
+    * @throws
+     */
+    public int getRewardCount(){
+    	int count = 0;
+    	ResultSet rs=null;
+	    DBMeans ss=new DBMeans();
+	    String sql="select count(*) from sys_result_awards";
+	    rs=ss.Search(sql);
+	    try {
+			while(rs.next()){
+				count=rs.getInt(1);
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			ss.closeAll();
+		}
+    	return count;
+    }
+    
+    /**
+     * 
+    * @Title: getPatentCount
+    * @Description: TODO 获取专利数量
+    * @param @return    设定文件
+    * @return int    返回类型
+    * @throws
+     */
+    public int getPatentCount(){
+    	int count = 0;
+    	ResultSet rs=null;
+	    DBMeans ss=new DBMeans();
+	    String sql="select count(*) from sys_result_patent";
+	    rs=ss.Search(sql);
+	    try {
+			while(rs.next()){
+				count=rs.getInt(1);
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			ss.closeAll();
+		}
+    	return count;
+    }
+    
+    /**
+     * 
+    * @Title: getThesisCount
+    * @Description: TODO 论文的数量
+    * @param @return    设定文件
+    * @return int    返回类型
+    * @throws
+     */
+    public int getThesisCount(){
+    	int count = 0;
+    	ResultSet rs=null;
+	    DBMeans ss=new DBMeans();
+	    String sql="select count(*) from sys_result_thesis";
+	    rs=ss.Search(sql);
+	    try {
+			while(rs.next()){
+				count=rs.getInt(1);
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			ss.closeAll();
+		}
+    	return count;
+    }
+    
+    /**
+     * 
+    * @Title: getIdentificationCount
+    * @Description: TODO获取 鉴定 数量
+    * @param @return    设定文件
+    * @return int    返回类型
+    * @throws
+     */
+    public int getIdentificationCount(){
+    	int count = 0;
+    	ResultSet rs=null;
+	    DBMeans ss=new DBMeans();
+	    String sql="select count(*) from sys_result_identification";
+	    rs=ss.Search(sql);
+	    try {
+			while(rs.next()){
+				count=rs.getInt(1);
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			ss.closeAll();
+		}
+    	return count;
+    }
 }

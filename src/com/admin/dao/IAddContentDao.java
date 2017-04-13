@@ -38,4 +38,26 @@ public interface IAddContentDao {
     int AddDirectorCommitteeInfo(String name,String birthday,String sex,String post,String title,String research,String unit,String author,int is_publish);
     //添加管理委员会，学术委员会人员信息
     int AddOtherCommitteeInfo(String style,String name,String birthday,String sex,String post,String title,String research,String unit,String author,int is_publish);
+    
+    //添加国家自然科学基金
+    int AddFoundationInfo(String name,String number,String person,double outlay,String time,int is_publish);
+    
+    //添加省部级项目
+    int AddProvincialInfo(String nameid,String person,String source,double outlay,String time,int is_publish );
+    
+    //添加横向合作
+    int AddHorizontalCooperationInfo(String name,String cooperator,String person,double outlay,String time,int is_publish);
+    
+    //添加奖励
+    int AddRewardsInfo(String name,String awards,String person,String time,int is_publish);
+    
+    //添加专利
+    int AddPatentInfo(String name,String style,String person,String time,int is_publish);
+    
+    //添加论文
+    int AddThesisInfo(String style,String author,String name,String publication_division,String page_number,int is_publish);
+    
+    //添加鉴定
+    int AddIdentificationInfo(String name,String identification_number,String person,String time,String level,int is_publish);
+    
 }

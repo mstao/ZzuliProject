@@ -24,4 +24,19 @@ public interface IDeleteContentDao {
 	boolean  deletePerosn(String[] ids);
 	//删除 委员会人员信息
 	boolean  deleteCommittee(String[] ids,String type);
+	
+	//删除国家自然科学基金
+	boolean  deleteFoundation(String[] ids);
+	//删除省部级项目
+	boolean  deleteProvincial(String[] ids);
+	//删除横向合作
+	boolean  deleteHorizontalCooperation(String[] ids);
+	//删除奖励
+	boolean  deleteRewards(String[] ids);
+	//删除专利
+	boolean  deletePatent(String[] ids);
+	//删除论文
+	boolean  deleteThesis(String[] ids);
+	//删除鉴定
+	boolean  deleteIdentification(String[] ids);
 }

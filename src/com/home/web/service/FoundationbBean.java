@@ -22,7 +22,7 @@ public class FoundationbBean implements Serializable{
 	private  double outlay;
 	private  String time;
 	private  String add_time;
-	
+	private  int is_publish;
 	public int getId() {
 		return id;
 	}
@@ -64,6 +64,18 @@ public class FoundationbBean implements Serializable{
 	}
 	public void setAdd_time(String add_time) {
 		this.add_time = add_time;
+	}
+	public int getIs_publish() {
+		return is_publish;
+	}
+	public void setIs_publish(int is_publish) {
+		this.is_publish = is_publish;
+	}
+	@Override
+	public String toString() {
+		return "FoundationbBean [id=" + id + ", name=" + name + ", number=" + number + ", person=" + person
+				+ ", outlay=" + outlay + ", time=" + time + ", add_time=" + add_time + ", is_publish=" + is_publish
+				+ "]";
 	}
 	
 	

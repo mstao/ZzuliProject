@@ -33,4 +33,20 @@ public interface IAdminAllSimpleInfoDao<T> {
  	 //获取 管理和学术委员会人员信息
  	 List<T> getSimpleCommitteeInfo(String type,int position, int item_per_page);
  	 
+ 	 
+ 	 //获取国家自然科学基金信息
+ 	 List<T> getSimpleFoundationInfo(int position, int item_per_page);
+ 	 //获取省部级重点（大）项目
+ 	 List<T> getSimpleProvincialInfo(int position, int item_per_page);
+ 	 //获取横向合作信息
+ 	 List<T> getSimpleHorizontalCooperationInfo(int position, int item_per_page);
+ 	 
+ 	 //获取奖励信息
+ 	 List<T> getSimpleRewardsInfo(int position, int item_per_page);
+ 	 //获取专利信息
+ 	 List<T> getSimplePatentInfo(int position, int item_per_page);
+ 	 //获取鉴定信息
+ 	 List<T> getSimpleIdentificationInfo(int position, int item_per_page);
+ 	 //获取论文信息
+ 	 List<T> getSimpleThesisInfo(int position, int item_per_page);
 }

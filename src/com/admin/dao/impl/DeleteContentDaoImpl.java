@@ -401,4 +401,291 @@ public class DeleteContentDaoImpl implements IDeleteContentDao {
         return flag;
 	}
 
+	/**
+	 * 删除国家自然科学基金
+	 */
+	@Override
+	public boolean deleteFoundation(String[] ids) {
+		// TODO Auto-generated method stub
+		boolean flag=false;
+		PreparedStatement ps=null;
+		Connection con=DB.getConn();
+		String sql = "delete from sys_project_foundation where id=?";  
+        try {  
+        	
+            con.setAutoCommit(false);  
+            ps = con.prepareStatement(sql);  
+            for(int i =0 ;i<ids.length;i++){   
+                ps.setString(1,ids[i].trim());  
+                ps.addBatch();                 
+            }   
+            ps.executeBatch(); //批量执行   
+            con.commit();//提交事务  
+            flag = true;  
+        } catch (SQLException e) {  
+            try {  
+                con.rollback(); //进行事务回滚  
+                flag=false;
+            } catch (SQLException ex) {   
+            }   
+        }finally {  
+        	try {
+				con.setAutoCommit(true);
+				con.close();
+				ps.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+        }   
+        return flag;
+	}
+
+	/**
+	 * 删除省部级项目
+	 */
+	@Override
+	public boolean deleteProvincial(String[] ids) {
+		// TODO Auto-generated method stub
+		boolean flag=false;
+		PreparedStatement ps=null;
+		Connection con=DB.getConn();
+		String sql = "delete from sys_project_provincial where id=?";  
+        try {  
+        	
+            con.setAutoCommit(false);  
+            ps = con.prepareStatement(sql);  
+            for(int i =0 ;i<ids.length;i++){   
+                ps.setString(1,ids[i].trim());  
+                ps.addBatch();                 
+            }   
+            ps.executeBatch(); //批量执行   
+            con.commit();//提交事务  
+            flag = true;  
+        } catch (SQLException e) {  
+            try {  
+                con.rollback(); //进行事务回滚  
+                flag=false;
+            } catch (SQLException ex) {   
+            }   
+        }finally {  
+        	try {
+				con.setAutoCommit(true);
+				con.close();
+				ps.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+        }   
+        return flag;
+	}
+
+	/**
+	 * 删除横向合作
+	 */
+	@Override
+	public boolean deleteHorizontalCooperation(String[] ids) {
+		// TODO Auto-generated method stub
+		boolean flag=false;
+		PreparedStatement ps=null;
+		Connection con=DB.getConn();
+		String sql = "delete from sys_project_horizontal_cooperation where id=?";  
+        try {  
+        	
+            con.setAutoCommit(false);  
+            ps = con.prepareStatement(sql);  
+            for(int i =0 ;i<ids.length;i++){   
+                ps.setString(1,ids[i].trim());  
+                ps.addBatch();                 
+            }   
+            ps.executeBatch(); //批量执行   
+            con.commit();//提交事务  
+            flag = true;  
+        } catch (SQLException e) {  
+            try {  
+                con.rollback(); //进行事务回滚  
+                flag=false;
+            } catch (SQLException ex) {   
+            }   
+        }finally {  
+        	try {
+				con.setAutoCommit(true);
+				con.close();
+				ps.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+        }   
+        return flag;
+	}
+
+	/**
+	 * 删除奖励
+	 */
+	@Override
+	public boolean deleteRewards(String[] ids) {
+		// TODO Auto-generated method stub
+		boolean flag=false;
+		PreparedStatement ps=null;
+		Connection con=DB.getConn();
+		String sql = "delete from sys_result_awards where id=?";  
+        try {  
+        	
+            con.setAutoCommit(false);  
+            ps = con.prepareStatement(sql);  
+            for(int i =0 ;i<ids.length;i++){   
+                ps.setString(1,ids[i].trim());  
+                ps.addBatch();                 
+            }   
+            ps.executeBatch(); //批量执行   
+            con.commit();//提交事务  
+            flag = true;  
+        } catch (SQLException e) {  
+            try {  
+                con.rollback(); //进行事务回滚  
+                flag=false;
+            } catch (SQLException ex) {   
+            }   
+        }finally {  
+        	try {
+				con.setAutoCommit(true);
+				con.close();
+				ps.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+        }   
+        return flag;
+	}
+
+	/**
+	 * 删除专利
+	 */
+	@Override
+	public boolean deletePatent(String[] ids) {
+		// TODO Auto-generated method stub
+		boolean flag=false;
+		PreparedStatement ps=null;
+		Connection con=DB.getConn();
+		String sql = "delete from sys_result_patent where id=?";  
+        try {  
+        	
+            con.setAutoCommit(false);  
+            ps = con.prepareStatement(sql);  
+            for(int i =0 ;i<ids.length;i++){   
+                ps.setString(1,ids[i].trim());  
+                ps.addBatch();                 
+            }   
+            ps.executeBatch(); //批量执行   
+            con.commit();//提交事务  
+            flag = true;  
+        } catch (SQLException e) {  
+            try {  
+                con.rollback(); //进行事务回滚  
+                flag=false;
+            } catch (SQLException ex) {   
+            }   
+        }finally {  
+        	try {
+				con.setAutoCommit(true);
+				con.close();
+				ps.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+        }   
+        return flag;
+	}
+
+	/**
+	 * 删除论文
+	 */
+	@Override
+	public boolean deleteThesis(String[] ids) {
+		// TODO Auto-generated method stub
+		boolean flag=false;
+		PreparedStatement ps=null;
+		Connection con=DB.getConn();
+		String sql = "delete from sys_result_thesis where id=?";  
+        try {  
+        	
+            con.setAutoCommit(false);  
+            ps = con.prepareStatement(sql);  
+            for(int i =0 ;i<ids.length;i++){   
+                ps.setString(1,ids[i].trim());  
+                ps.addBatch();                 
+            }   
+            ps.executeBatch(); //批量执行   
+            con.commit();//提交事务  
+            flag = true;  
+        } catch (SQLException e) {  
+            try {  
+                con.rollback(); //进行事务回滚  
+                flag=false;
+            } catch (SQLException ex) {   
+            }   
+        }finally {  
+        	try {
+				con.setAutoCommit(true);
+				con.close();
+				ps.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+        }   
+        return flag;
+	}
+
+	/**
+	 * 删除鉴定
+	 */
+	@Override
+	public boolean deleteIdentification(String[] ids) {
+		// TODO Auto-generated method stub
+		boolean flag=false;
+		PreparedStatement ps=null;
+		Connection con=DB.getConn();
+		String sql = "delete from sys_result_identification where id=?";  
+        try {  
+        	
+            con.setAutoCommit(false);  
+            ps = con.prepareStatement(sql);  
+            for(int i =0 ;i<ids.length;i++){   
+                ps.setString(1,ids[i].trim());  
+                ps.addBatch();                 
+            }   
+            ps.executeBatch(); //批量执行   
+            con.commit();//提交事务  
+            flag = true;  
+        } catch (SQLException e) {  
+            try {  
+                con.rollback(); //进行事务回滚  
+                flag=false;
+            } catch (SQLException ex) {   
+            }   
+        }finally {  
+        	try {
+				con.setAutoCommit(true);
+				con.close();
+				ps.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+        }   
+        return flag;
+	}
+
 }

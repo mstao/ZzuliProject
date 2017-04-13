@@ -29,4 +29,20 @@ public interface IAdminAllInfoDao<T> {
    	 List<T> getCommitteeIntroInfo(String type);
    	 //获取 委员会人员信息
    	 List<T> getCommitteeInfo(int id,String type);
+   	 
+   	 
+   	 //国家自然科学基金
+   	 T getFoundationInfo(int id);
+   	 //省部级项目
+   	 T getProvincialInfo(int id);
+   	 //横向合作
+   	 T getHorizontalCooperationInfo(int id);
+   	 //奖励
+   	 T getRewardsInfo(int id);
+   	 //专利
+   	 T getPatentInfo(int id);
+   	 //论文
+   	 T getThesisInfo(int id);
+   	 //鉴定
+   	 T getIdentificationInfo(int id);
 }

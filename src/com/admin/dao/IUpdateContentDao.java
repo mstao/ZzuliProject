@@ -38,4 +38,27 @@ public interface IUpdateContentDao {
 	boolean updateDirectorCommitteeInfo(int id,String name,String birthday,String sex,String post,String title,String research,String unit,String author,int is_publish);
 	//修改 管理委员会，学术委员,实验主任委员会主任会信息
 	boolean updateCommitteeInfo(int id,String type,String name,String birthday,String sex,String post,String title,String research,String unit,String author,int is_publish);
+    
+	//添加国家自然科学基金
+    boolean updateFoundationInfo(int id,String name,String number,String person,double outlay,String time,int is_publish);
+    
+    //添加省部级项目
+    boolean updateProvincialInfo(int id,String nameid,String person,String source,double outlay,String time,int is_publish );
+    
+    //添加横向合作
+    boolean updateHorizontalCooperationInfo(int id,String name,String cooperator,String person,double outlay,String time,int is_publish);
+    
+    //添加奖励
+    boolean updateRewardsInfo(int id,String name,String awards,String person,String time,int is_publish);
+    
+    //添加专利
+    boolean updatePatentInfo(int id,String name,String style,String person,String time,int is_publish);
+    
+    //添加论文
+    boolean updateThesisInfo(int id,String style,String author,String name,String publication_division,String page_number,int is_publish);
+    
+    //添加鉴定
+    boolean updateIdentificationInfo(int id,String name,String identification_number,String person,String time,String level,int is_publish);
+    
+  
 }

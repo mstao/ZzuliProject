@@ -11,12 +11,19 @@ import com.home.db.DBMeans;
 import com.home.web.service.AchievementBean;
 import com.home.web.service.CommitteeBean;
 import com.home.web.service.CommitteeIntroBean;
+import com.home.web.service.FoundationbBean;
+import com.home.web.service.HorizontalCooperationBean;
 import com.home.web.service.InstrumentRuleBean;
 import com.home.web.service.InstrumentsBean;
 import com.home.web.service.NewsBean;
 import com.home.web.service.PersonBean;
 import com.home.web.service.PersonIntroBean;
+import com.home.web.service.ProvincialProjectBean;
 import com.home.web.service.ResearchBean;
+import com.home.web.service.ResultIdentificationBean;
+import com.home.web.service.ResultPatentBean;
+import com.home.web.service.ResultRewardsBean;
+import com.home.web.service.ResultThesisBean;
 import com.home.web.service.RulesBean;
 
 
@@ -391,6 +398,226 @@ public class AdminAllInfoDaoImpl<T> implements IAdminAllInfoDao<T>{
 			ss.closeAll();
 		}
 		return (List<T>) committee;
+	}
+
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public T getFoundationInfo(int id) {
+		// TODO Auto-generated method stub
+		ResultSet rs=null;
+		DBMeans ss=new DBMeans();
+		String sql1="select * from sys_project_foundation where id='"+id+"'";
+		rs=ss.Search(sql1);
+		FoundationbBean fb=new FoundationbBean();
+		try {
+			while(rs.next()){
+				
+				fb.setId(rs.getInt("id"));
+				fb.setName(rs.getString("name"));
+				fb.setNumber(rs.getString("number"));
+				fb.setOutlay(rs.getDouble("outlay"));
+				fb.setPerson(rs.getString("person"));
+				fb.setTime(rs.getString("time"));
+				fb.setIs_publish(rs.getInt("is_publish"));
+				
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			ss.closeAll();
+		}
+		return (T) fb;
+	}
+
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public T getProvincialInfo(int id) {
+		// TODO Auto-generated method stub
+		ResultSet rs=null;
+		DBMeans ss=new DBMeans();
+		String sql1="select * from sys_project_provincial where id='"+id+"'";
+		rs=ss.Search(sql1);
+		ProvincialProjectBean pb=new ProvincialProjectBean();
+		try {
+			while(rs.next()){
+				
+				
+				pb.setId(rs.getInt("id"));
+				pb.setNameid(rs.getString("nameid"));
+				pb.setOutlay(rs.getDouble("outlay"));
+				pb.setPerson(rs.getString("person"));
+				pb.setSource(rs.getString("source"));
+				pb.setTime(rs.getString("time"));
+				pb.setIs_publish(rs.getInt("is_publish"));
+				
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			ss.closeAll();
+		}
+		return (T) pb;
+	}
+
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public T getHorizontalCooperationInfo(int id) {
+		// TODO Auto-generated method stub
+		ResultSet rs=null;
+		DBMeans ss=new DBMeans();
+		String sql1="select * from sys_project_horizontal_cooperation where id='"+id+"'";
+		rs=ss.Search(sql1);
+		HorizontalCooperationBean hb=new HorizontalCooperationBean();
+		try {
+			while(rs.next()){
+				
+			
+				hb.setId(rs.getInt("id"));
+				hb.setName(rs.getString("name"));
+				hb.setOutlay(rs.getDouble("outlay"));
+				hb.setPerson(rs.getString("person"));
+				hb.setCooperator(rs.getString("cooperator"));
+				hb.setTime(rs.getString("time"));
+				hb.setIs_publish(rs.getInt("is_publish"));
+				
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			ss.closeAll();
+		}
+		return (T) hb;
+	}
+
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public T getRewardsInfo(int id) {
+		// TODO Auto-generated method stub
+		ResultSet rs=null;
+		DBMeans ss=new DBMeans();
+		String sql1="select * from sys_result_awards where id='"+id+"'";
+		rs=ss.Search(sql1);
+		ResultRewardsBean rb=new ResultRewardsBean();
+		try {
+			while(rs.next()){
+				
+				
+				rb.setId(rs.getInt("id"));
+				rb.setName(rs.getString("name"));
+				rb.setPerson(rs.getString("person"));
+				rb.setAwards(rs.getString("awards"));
+				rb.setTime(rs.getString("time"));
+				rb.setIs_publish(rs.getInt("is_publish"));
+				
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			ss.closeAll();
+		}
+		return (T) rb;
+	}
+
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public T getPatentInfo(int id) {
+		// TODO Auto-generated method stub
+		ResultSet rs=null;
+		DBMeans ss=new DBMeans();
+		String sql1="select * from sys_result_patent where id='"+id+"'";
+		rs=ss.Search(sql1);
+		ResultPatentBean rb=new ResultPatentBean();
+		try {
+			while(rs.next()){
+								
+				rb.setId(rs.getInt("id"));
+				rb.setName(rs.getString("name"));
+				rb.setPerson(rs.getString("person"));
+				rb.setStyle(rs.getString("style"));
+				rb.setTime(rs.getString("time"));
+				rb.setIs_publish(rs.getInt("is_publish"));
+				
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			ss.closeAll();
+		}
+		return (T) rb;
+	}
+
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public T getThesisInfo(int id) {
+		// TODO Auto-generated method stub
+		ResultSet rs=null;
+		DBMeans ss=new DBMeans();
+		String sql1="select * from sys_result_thesis where id='"+id+"'";
+		rs=ss.Search(sql1);
+		ResultThesisBean rb=new ResultThesisBean();
+		try {
+			while(rs.next()){
+								
+				
+				rb.setId(rs.getInt("id"));
+				rb.setName(rs.getString("name"));
+				rb.setAuthor(rs.getString("author"));
+				rb.setPage_number(rs.getString("page_number"));
+				rb.setPublication_division(rs.getString("publication_division"));
+				rb.setStyle(rs.getString("style"));
+				rb.setIs_publish(rs.getInt("is_publish"));
+				
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			ss.closeAll();
+		}
+		return (T) rb;
+	}
+
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public T getIdentificationInfo(int id) {
+		// TODO Auto-generated method stub
+		ResultSet rs=null;
+		DBMeans ss=new DBMeans();
+		String sql1="select * from sys_result_identification where id='"+id+"'";
+		rs=ss.Search(sql1);
+		ResultIdentificationBean rb=new ResultIdentificationBean();
+		try {
+			while(rs.next()){
+								
+				
+				rb.setId(rs.getInt("id"));
+				rb.setName(rs.getString("name"));
+				rb.setPerson(rs.getString("person"));
+				rb.setTime(rs.getString("time"));
+				rb.setLevel(rs.getString("level"));
+				rb.setIdentification_number(rs.getString("identification_number"));
+				rb.setIs_publish(rs.getInt("is_publish"));
+				
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			ss.closeAll();
+		}
+		return (T) rb;
 	}
 	
 

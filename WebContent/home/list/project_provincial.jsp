@@ -48,8 +48,8 @@
 				<th width="8%">序号</th>
 				<th width="40%">项目名称及编号</th>
 				<th width="10%">主持人</th>
-				<th width="15%">来源</th>
-				<th width="17%">经费（万元）</th>
+				<th width="20%">来源</th>
+				<th width="12%">经费（万元）</th>
 				<th width="10%">起止时间</th>
 
 			</tr>

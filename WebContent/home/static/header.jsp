@@ -9,7 +9,7 @@
 		<li><a href="${pageContext.request.contextPath}/index.do">首页 </a></li>
 		<li><a href="${pageContext.request.contextPath}/introduce.do?type=isg">${WEB_INTRO_NAVI}</a></li>
 		<li><a href="${pageContext.request.contextPath}/news.do?type=xsx&p=1">${WEB_NEWS_NAVI}</a></li>
-		<li><a href="${pageContext.request.contextPath}/research.do?type=kpj&p=1">${WEB_RESEARCH_NAVI}</a></li>
+		<li><a href="${pageContext.request.contextPath}/research.do?type=kyl&p=1">${WEB_RESEARCH_NAVI}</a></li>
 		<li><a href="${pageContext.request.contextPath}/person.do?p=1">${WEB_PERSON_NAVI}</a></li>
 		<li><a href="${pageContext.request.contextPath}/student.do?type=xbp">${WEB_STUDENT_NAVI}</a></li>
 		<li><a href="${pageContext.request.contextPath}/reward.do">${WEB_RESULT_NAVI}</a></li>

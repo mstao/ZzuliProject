@@ -14,6 +14,6 @@ public class CommonConfig {
     public static int INSTRUMENT_PAGESIZE=10;
     
     /************后台列表每页显示记录数**********/
-    public static int ADMIN_PAGESIZE=10;
+    public static int ADMIN_PAGESIZE=15;
     
 }

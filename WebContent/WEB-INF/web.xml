@@ -797,7 +797,6 @@
     <servlet-name>UpdateUserPasswordServlet</servlet-name>
     <url-pattern>/dealupdatepassword.ado</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>LoadFoundationInfoServlet</servlet-name>
     <servlet-class>com.home.web.servlet.LoadFoundationInfoServlet</servlet-class>
@@ -806,8 +805,7 @@
     <servlet-name>LoadFoundationInfoServlet</servlet-name>
     <url-pattern>/foundation.do</url-pattern>
   </servlet-mapping>
-  
-   <servlet>
+  <servlet>
     <servlet-name>LoadProvincialInfoServlet</servlet-name>
     <servlet-class>com.home.web.servlet.LoadProvincialInfoServlet</servlet-class>
   </servlet>
@@ -815,8 +813,7 @@
     <servlet-name>LoadProvincialInfoServlet</servlet-name>
     <url-pattern>/provincial.do</url-pattern>
   </servlet-mapping>
-  
-   <servlet>
+  <servlet>
     <servlet-name>LoadHorizontalCooperationInfoServlet</servlet-name>
     <servlet-class>com.home.web.servlet.LoadHorizontalCooperationInfoServlet</servlet-class>
   </servlet>
@@ -824,7 +821,6 @@
     <servlet-name>LoadHorizontalCooperationInfoServlet</servlet-name>
     <url-pattern>/horizontalCooperation.do</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>LoadResultAwardsInfoServlet</servlet-name>
     <servlet-class>com.home.web.servlet.LoadResultAwardsInfoServlet</servlet-class>
@@ -833,7 +829,6 @@
     <servlet-name>LoadResultAwardsInfoServlet</servlet-name>
     <url-pattern>/reward.do</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>LoadResultIdentificationInfoServlet</servlet-name>
     <servlet-class>com.home.web.servlet.LoadResultIdentificationInfoServlet</servlet-class>
@@ -842,8 +837,7 @@
     <servlet-name>LoadResultIdentificationInfoServlet</servlet-name>
     <url-pattern>/identification.do</url-pattern>
   </servlet-mapping>
-  
-   <servlet>
+  <servlet>
     <servlet-name>LoadResultPatentInfoServlet</servlet-name>
     <servlet-class>com.home.web.servlet.LoadResultPatentInfoServlet</servlet-class>
   </servlet>
@@ -851,7 +845,6 @@
     <servlet-name>LoadResultPatentInfoServlet</servlet-name>
     <url-pattern>/patent.do</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>LoadResultThesisInfoServlet</servlet-name>
     <servlet-class>com.home.web.servlet.LoadResultThesisInfoServlet</servlet-class>
@@ -860,4 +853,293 @@
     <servlet-name>LoadResultThesisInfoServlet</servlet-name>
     <url-pattern>/thesis.do</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>ShowProjectFoundationListServlet</servlet-name>
+    <servlet-class>com.admin.web.servlet.ShowProjectFoundationListServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ShowProjectFoundationListServlet</servlet-name>
+    <url-pattern>/showfoundation.ado</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>ShowProjectProvincialListServlet</servlet-name>
+    <servlet-class>com.admin.web.servlet.ShowProjectProvincialListServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ShowProjectProvincialListServlet</servlet-name>
+    <url-pattern>/showprovincial.ado</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>ShowProjectHorizontalCooperationServlet</servlet-name>
+    <servlet-class>com.admin.web.servlet.ShowProjectHorizontalCooperationServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ShowProjectHorizontalCooperationServlet</servlet-name>
+    <url-pattern>/showcooperation.ado</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>ShowResultRewardListServlet</servlet-name>
+    <servlet-class>com.admin.web.servlet.ShowResultRewardListServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ShowResultRewardListServlet</servlet-name>
+    <url-pattern>/showrewards.ado</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>ShowResultPatentListServlet</servlet-name>
+    <servlet-class>com.admin.web.servlet.ShowResultPatentListServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ShowResultPatentListServlet</servlet-name>
+    <url-pattern>/showpatent.ado</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>ShowResultThesisListServlet</servlet-name>
+    <servlet-class>com.admin.web.servlet.ShowResultThesisListServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ShowResultThesisListServlet</servlet-name>
+    <url-pattern>/showthesis.ado</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>ShowResultIdentificationListServlet</servlet-name>
+    <servlet-class>com.admin.web.servlet.ShowResultIdentificationListServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ShowResultIdentificationListServlet</servlet-name>
+    <url-pattern>/showidentification.ado</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>AddFoundationServlet</servlet-name>
+    <servlet-class>com.admin.web.servlet.AddFoundationServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddFoundationServlet</servlet-name>
+    <url-pattern>/addfoundation.ado</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>AddProvincialServlet</servlet-name>
+    <servlet-class>com.admin.web.servlet.AddProvincialServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddProvincialServlet</servlet-name>
+    <url-pattern>/addprovincial.ado</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>AddHorizontalCooperationServlet</servlet-name>
+    <servlet-class>com.admin.web.servlet.AddHorizontalCooperationServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddHorizontalCooperationServlet</servlet-name>
+    <url-pattern>/addcooperation.ado</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>AddRewardsServlet</servlet-name>
+    <servlet-class>com.admin.web.servlet.AddRewardsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddRewardsServlet</servlet-name>
+    <url-pattern>/addrewards.ado</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>AddPatentServlet</servlet-name>
+    <servlet-class>com.admin.web.servlet.AddPatentServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddPatentServlet</servlet-name>
+    <url-pattern>/addpatent.ado</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>AddThesisServlet</servlet-name>
+    <servlet-class>com.admin.web.servlet.AddThesisServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddThesisServlet</servlet-name>
+    <url-pattern>/addthesis.ado</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>AddIdentificationServlet</servlet-name>
+    <servlet-class>com.admin.web.servlet.AddIdentificationServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddIdentificationServlet</servlet-name>
+    <url-pattern>/addidentification.ado</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>DistributeProjectFoundationServlet</servlet-name>
+    <servlet-class>com.admin.web.servlet.DistributeProjectFoundationServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DistributeProjectFoundationServlet</servlet-name>
+    <url-pattern>/updatefoundation.ado</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>DistributeProjectProvincialServlet</servlet-name>
+    <servlet-class>com.admin.web.servlet.DistributeProjectProvincialServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DistributeProjectProvincialServlet</servlet-name>
+    <url-pattern>/updateprovincial.ado</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>DistributeHorizontalCooperationServlet</servlet-name>
+    <servlet-class>com.admin.web.servlet.DistributeHorizontalCooperationServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DistributeHorizontalCooperationServlet</servlet-name>
+    <url-pattern>/updatecooperation.ado</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>DistributeResultRewardsServlet</servlet-name>
+    <servlet-class>com.admin.web.servlet.DistributeResultRewardsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DistributeResultRewardsServlet</servlet-name>
+    <url-pattern>/updaterewards.ado</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>DistributeResultThesisServlet</servlet-name>
+    <servlet-class>com.admin.web.servlet.DistributeResultThesisServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DistributeResultThesisServlet</servlet-name>
+    <url-pattern>/updatethesis.ado</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>DistributeResultPatentServlet</servlet-name>
+    <servlet-class>com.admin.web.servlet.DistributeResultPatentServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DistributeResultPatentServlet</servlet-name>
+    <url-pattern>/updatepatent.ado</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>DistributeResultIdentificationServlet</servlet-name>
+    <servlet-class>com.admin.web.servlet.DistributeResultIdentificationServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DistributeResultIdentificationServlet</servlet-name>
+    <url-pattern>/updateidentification.ado</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>UpdateFoundationServlet</servlet-name>
+    <servlet-class>com.admin.web.servlet.UpdateFoundationServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateFoundationServlet</servlet-name>
+    <url-pattern>/dealupdatefoundation.ado</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>UpdateProvincialServlet</servlet-name>
+    <servlet-class>com.admin.web.servlet.UpdateProvincialServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateProvincialServlet</servlet-name>
+    <url-pattern>/dealupdateprovincial.ado</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>UpdateHorizontalCooperationServlet</servlet-name>
+    <servlet-class>com.admin.web.servlet.UpdateHorizontalCooperationServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateHorizontalCooperationServlet</servlet-name>
+    <url-pattern>/dealupdatecooperation.ado</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>UpdateRewardsServlet</servlet-name>
+    <servlet-class>com.admin.web.servlet.UpdateRewardsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateRewardsServlet</servlet-name>
+    <url-pattern>/dealupdaterewards.ado</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>UpdatePatentServlet</servlet-name>
+    <servlet-class>com.admin.web.servlet.UpdatePatentServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdatePatentServlet</servlet-name>
+    <url-pattern>/dealupdatepatent.ado</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>UpdateIdentificationServlet</servlet-name>
+    <servlet-class>com.admin.web.servlet.UpdateIdentificationServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateIdentificationServlet</servlet-name>
+    <url-pattern>/dealupdateidentification.ado</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>UpdateThesisServlet</servlet-name>
+    <servlet-class>com.admin.web.servlet.UpdateThesisServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateThesisServlet</servlet-name>
+    <url-pattern>/dealupdatethesis.ado</url-pattern>
+  </servlet-mapping>
+  
+  <!-- 删除 -->
+   <servlet>
+    <servlet-name>DeleteFoundationServlet</servlet-name>
+    <servlet-class>com.admin.web.servlet.DeleteFoundationServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteFoundationServlet</servlet-name>
+    <url-pattern>/deletefoundation.ado</url-pattern>
+  </servlet-mapping>
+  
+     <servlet>
+    <servlet-name>DeleteProvincialServlet</servlet-name>
+    <servlet-class>com.admin.web.servlet.DeleteProvincialServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteProvincialServlet</servlet-name>
+    <url-pattern>/deleteprovincial.ado</url-pattern>
+  </servlet-mapping>
+  
+     <servlet>
+    <servlet-name>DeleteHorizontalCooperationServlet</servlet-name>
+    <servlet-class>com.admin.web.servlet.DeleteHorizontalCooperationServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteHorizontalCooperationServlet</servlet-name>
+    <url-pattern>/deletecooperation.ado</url-pattern>
+  </servlet-mapping>
+  
+    <servlet>
+    <servlet-name>DeleteResultRewardsServlet</servlet-name>
+    <servlet-class>com.admin.web.servlet.DeleteResultRewardsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteResultRewardsServlet</servlet-name>
+    <url-pattern>/deleterewards.ado</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+    <servlet-name>DeleteResultPatentServlet</servlet-name>
+    <servlet-class>com.admin.web.servlet.DeleteResultPatentServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteResultPatentServlet</servlet-name>
+    <url-pattern>/deletepatent.ado</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+    <servlet-name>DeleteResultThesisServlet</servlet-name>
+    <servlet-class>com.admin.web.servlet.DeleteResultThesisServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteResultThesisServlet</servlet-name>
+    <url-pattern>/deletethesis.ado</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>DeleteResultIdentificationServlet</servlet-name>
+    <servlet-class>com.admin.web.servlet.DeleteResultIdentificationServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteResultIdentificationServlet</servlet-name>
+    <url-pattern>/deleteidentification.ado</url-pattern>
+  </servlet-mapping>
+  
 </web-app>

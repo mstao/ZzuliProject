@@ -854,4 +854,339 @@ public class AddContentDaoImpl implements IAddContentDao {
         
 		return id;
 	}
+
+	
+	/**
+	 * 添加 国家自然科学基金
+	 */
+	@Override
+	public int AddFoundationInfo(String name, String number, String person, double outlay, String time,
+			int is_publish) {
+		// TODO Auto-generated method stub
+		ResultSet rs=null;
+		PreparedStatement ps=null;
+		Connection con=DB.getConn();
+		
+		int id = 0;		
+		//获取当前时间
+		String c_data=GetDateUtil.getData();
+		String sql="insert into sys_project_foundation(name,number,person,outlay,time,add_time,is_publish) values(?,?,?,?,?,?,?)";
+		try {
+			ps=(PreparedStatement)con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+		    ps.setString(1, name);
+		    ps.setString(2, number);
+		    ps.setString(3, person);
+		    ps.setDouble(4, outlay);
+		    ps.setString(5, time);
+		    ps.setString(6, c_data);
+		    ps.setInt(7, is_publish);
+		    
+		    ps.executeUpdate();
+		    rs=ps.getGeneratedKeys();
+		    if(rs.next()){
+		    	id=rs.getInt(1);
+		    }
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			try {
+				con.close();
+				ps.close();
+			    rs.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+	
+		}
+		return id;
+	}
+
+	/**
+	 * 添加 省部级项目
+	 */
+	@Override
+	public int AddProvincialInfo(String nameid, String person, String source, double outlay, String time,
+			int is_publish) {
+		// TODO Auto-generated method stub
+		ResultSet rs=null;
+		PreparedStatement ps=null;
+		Connection con=DB.getConn();
+		
+		int id = 0;		
+		//获取当前时间
+		String c_data=GetDateUtil.getData();
+		String sql="insert into sys_project_provincial(nameid,person,source,outlay,time,add_time,is_publish) values(?,?,?,?,?,?,?)";
+		try {
+			ps=(PreparedStatement)con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+		    ps.setString(1, nameid);
+		    ps.setString(2, person);
+		    ps.setString(3, source);
+		    ps.setDouble(4, outlay);
+		    ps.setString(5, time);
+		    ps.setString(6, c_data);
+		    ps.setInt(7, is_publish);
+		    
+		    ps.executeUpdate();
+		    rs=ps.getGeneratedKeys();
+		    if(rs.next()){
+		    	id=rs.getInt(1);
+		    }
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			try {
+				con.close();
+				ps.close();
+			    rs.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+	
+		}
+		return id;
+	}
+
+	/**
+	 * 添加横向合作
+	 */
+	@Override
+	public int AddHorizontalCooperationInfo(String name, String cooperator, String person, double outlay, String time,
+			int is_publish) {
+		// TODO Auto-generated method stub
+		ResultSet rs=null;
+		PreparedStatement ps=null;
+		Connection con=DB.getConn();
+		
+		int id = 0;		
+		//获取当前时间
+		String c_data=GetDateUtil.getData();
+		String sql="insert into sys_project_horizontal_cooperation(name,cooperator,person,outlay,time,add_time,is_publish) values(?,?,?,?,?,?,?)";
+		try {
+			ps=(PreparedStatement)con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+		    ps.setString(1, name);
+		    ps.setString(2, cooperator);
+		    ps.setString(3, person);
+		    ps.setDouble(4, outlay);
+		    ps.setString(5, time);
+		    ps.setString(6, c_data);
+		    ps.setInt(7, is_publish);
+		    
+		    ps.executeUpdate();
+		    rs=ps.getGeneratedKeys();
+		    if(rs.next()){
+		    	id=rs.getInt(1);
+		    }
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			try {
+				con.close();
+				ps.close();
+			    rs.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+	
+		}
+		return id;
+	}
+
+	/**
+	 * 添加 奖励
+	 */
+	@Override
+	public int AddRewardsInfo(String name, String awards, String person, String time, int is_publish) {
+		// TODO Auto-generated method stub
+		ResultSet rs=null;
+		PreparedStatement ps=null;
+		Connection con=DB.getConn();
+		
+		int id = 0;		
+		//获取当前时间
+		String c_data=GetDateUtil.getData();
+		String sql="insert into sys_result_awards(name,awards,person,time,add_time,is_publish) values(?,?,?,?,?,?)";
+		try {
+			ps=(PreparedStatement)con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+		    ps.setString(1, name);
+		    ps.setString(2, awards);
+		    ps.setString(3, person);
+		    ps.setString(4, time);
+		    ps.setString(5, c_data);
+		    ps.setInt(6, is_publish);
+		    
+		    ps.executeUpdate();
+		    rs=ps.getGeneratedKeys();
+		    if(rs.next()){
+		    	id=rs.getInt(1);
+		    }
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			try {
+				con.close();
+				ps.close();
+			    rs.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+	
+		}
+		return id;
+	}
+
+	/**
+	 * 添加专利
+	 */
+	@Override
+	public int AddPatentInfo(String name, String style, String person, String time, int is_publish) {
+		// TODO Auto-generated method stub
+		ResultSet rs=null;
+		PreparedStatement ps=null;
+		Connection con=DB.getConn();
+		
+		int id = 0;		
+		//获取当前时间
+		String c_data=GetDateUtil.getData();
+		String sql="insert into sys_result_patent(name,style,person,time,add_time,is_publish) values(?,?,?,?,?,?)";
+		try {
+			ps=(PreparedStatement)con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+		    ps.setString(1, name);
+		    ps.setString(2, style);
+		    ps.setString(3, person);
+		    ps.setString(4, time);
+		    ps.setString(5, c_data);
+		    ps.setInt(6, is_publish);
+		    
+		    ps.executeUpdate();
+		    rs=ps.getGeneratedKeys();
+		    if(rs.next()){
+		    	id=rs.getInt(1);
+		    }
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			try {
+				con.close();
+				ps.close();
+			    rs.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+	
+		}
+		return id;
+	}
+
+	
+	/**
+	 * 添加论文
+	 */
+	@Override
+	public int AddThesisInfo(String style, String author, String name, String publication_division, String page_number,
+			int is_publish) {
+		// TODO Auto-generated method stub
+		ResultSet rs=null;
+		PreparedStatement ps=null;
+		Connection con=DB.getConn();
+		
+		int id = 0;		
+		//获取当前时间
+		String c_data=GetDateUtil.getData();
+		String sql="insert into sys_result_thesis(style,author,name,publication_division,page_number,add_time,is_publish) values(?,?,?,?,?,?,?)";
+		try {
+			ps=(PreparedStatement)con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+		    ps.setString(1, style);
+		    ps.setString(2, author);
+		    ps.setString(3, name);
+		    ps.setString(4, publication_division);
+		    ps.setString(5, page_number);
+		    ps.setString(6, c_data);
+		    ps.setInt(7,is_publish);
+		    
+		    ps.executeUpdate();
+		    rs=ps.getGeneratedKeys();
+		    if(rs.next()){
+		    	id=rs.getInt(1);
+		    }
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			try {
+				con.close();
+				ps.close();
+			    rs.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+	
+		}
+		return id;
+	}
+
+	
+	/**
+	 * 添加鉴定
+	 */
+	@Override
+	public int AddIdentificationInfo(String name, String identification_number, String person, String time,
+			String level, int is_publish) {
+		// TODO Auto-generated method stub
+		ResultSet rs=null;
+		PreparedStatement ps=null;
+		Connection con=DB.getConn();
+		
+		int id = 0;		
+		//获取当前时间
+		String c_data=GetDateUtil.getData();
+		String sql="insert into sys_result_identification(name,identification_number,person,time,level,add_time,is_publish) values(?,?,?,?,?,?,?)";
+		try {
+			ps=(PreparedStatement)con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+		    ps.setString(1, name);
+		    ps.setString(2, identification_number);
+		    ps.setString(3, person);
+		    ps.setString(4, time);
+		    ps.setString(5, level);
+		    ps.setString(6, c_data);
+		    ps.setInt(7,is_publish);
+		    
+		    ps.executeUpdate();
+		    rs=ps.getGeneratedKeys();
+		    if(rs.next()){
+		    	id=rs.getInt(1);
+		    }
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			try {
+				con.close();
+				ps.close();
+			    rs.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+	
+		}
+		return id;
+	}
 }
