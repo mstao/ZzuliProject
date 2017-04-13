@@ -119,8 +119,8 @@
 				<th width="10%">成果类型</th>
 				<th width="10%">主要作者</th>
 				<th width="40%">论文名称</th>
-				<th width="20%">出版处</th>
-				<th width="15%">期、卷、页码</th>
+				<th width="20%">刊物名称</th>
+				<th width="15%">年、期、卷、页码</th>
          </tr>
           <c:forEach items="${thesis}" var="thesis" varStatus="hx">
          <tr>

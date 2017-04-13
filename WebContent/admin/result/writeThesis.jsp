@@ -47,10 +47,10 @@
 		<input type="text"  class="edit-title edit-project-author" placeholder="主要作者">
         <span class="title-span">论文名称</span>
 		<input type="text"  class="edit-title edit-project-name" placeholder="论文名称">		
-		<span class="title-span">出版处</span>
-		<input type="text"  class="edit-title edit-project-publication_division" placeholder="出版处">
-        <span class="title-span">期、卷、页码</span>
-		<input type="text"  class="edit-title edit-project-page_number" placeholder="期、卷、页码">
+		<span class="title-span">刊物名称</span>
+		<input type="text"  class="edit-title edit-project-publication_division" placeholder="刊物名称">
+        <span class="title-span">年、期、卷、页码</span>
+		<input type="text"  class="edit-title edit-project-page_number" placeholder="年、期、卷、页码">
         
         <div class="edit-submit">
         	<a href="javascript:void(0);" class="draft-btn draft-thesis-btn" onClick="ChangeState();">保存草稿</a><a href="javascript:void(0);" class="publish-btn publish-thesis-btn" onClick="ChangeState();">发布内容</a>

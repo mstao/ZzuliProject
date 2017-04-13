@@ -157,7 +157,7 @@
 		    		</c:forEach>
 		    	</ul>
 		    </div>
-		    <div class="look-more"><span><a href="${pageContext.request.contextPath}/news.do?type=xgt&p=1">查看更多<img src="${pageContext.request.contextPath}/home/img/more.png"/></a></span></div>
+		    <div class="look-more"><span><a href="${pageContext.request.contextPath}/news.do?type=xxb&p=1">查看更多<img src="${pageContext.request.contextPath}/home/img/more.png"/></a></span></div>
 		</div>
 		
 		<!--S 学术动态  -->
