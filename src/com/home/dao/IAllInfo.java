@@ -63,4 +63,7 @@ public interface IAllInfo<T> {
    	 List<T> getIdentificationInfo();
    	 //获取论文
    	 List<T> getThesisInfo();
+   	 
+   	 //获取学生培养的详细信息
+   	 T getStudentCultivateInfo(int id);
 }

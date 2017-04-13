@@ -30,6 +30,7 @@ import com.home.web.service.ResultRewardsBean;
 import com.home.web.service.ResultThesisBean;
 import com.home.web.service.RulesBean;
 import com.home.web.service.StudentBean;
+import com.home.web.service.StudentCultivateBean;
 
 /** 
  * @ClassName: AllInfoDaoImpl 
@@ -924,6 +925,42 @@ public class AllInfoDaoImpl<T> implements IAllInfo<T> {
 			ss.closeAll();
 		}
 		return (List<T>) thesis;
+	}
+
+	/**
+	 * 获取学生培养详细信息
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public T getStudentCultivateInfo(int id) {
+		// TODO Auto-generated method stub
+		ResultSet rs=null;
+	    DBMeans ss=new DBMeans();
+	    String sql1="select sn.*,snt.type_name,snt.type_flag from sys_student_cultivate sn,sys_student_cultivate_type snt where sn.type_id=snt.id and sn.is_publish=1  and sn.id='"+id+"' ";
+	    rs=ss.Search(sql1);
+		StudentCultivateBean st=new StudentCultivateBean();
+		try {
+			while(rs.next()){
+			
+				st.setId(rs.getInt("sn.id"));
+				st.setItem_title(rs.getString("sn.item_title"));
+				st.setItem_content(rs.getString("sn.item_content"));
+				st.setAdd_time(rs.getString("sn.add_time"));
+				st.setAuthor(rs.getString("sn.author"));
+				st.setView_count(rs.getInt("sn.view_count"));
+				st.setType_name(rs.getString("snt.type_name"));
+				st.setType_flag(rs.getString("snt.type_flag"));
+				st.setIs_publish(rs.getInt("sn.is_publish"));
+				
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			ss.closeAll();
+		}
+		return (T) st;
 	}
 	
 	

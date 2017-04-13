@@ -50,8 +50,8 @@
 				<th width="15%">成果类型</th>
 				<th width="15%">主要作者</th>
 				<th width="30%">论文名称</th>
-				<th width="15%">出版处</th>
-				<th width="17%">期、卷、页码</th>
+				<th width="15%">刊物名称</th>
+				<th width="17%">年、期、卷、页码</th>
 
 			</tr>
 		</c:if>	

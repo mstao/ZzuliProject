@@ -25,4 +25,7 @@ public interface IAllSimpleInfo<T> {
   	 List<T> getSimpleInstrumentInfo(int position,int item_per_page);
      //获取仪器设备-规章制度信息
   	 List<T> getSimpleInstrumentRuleInfo(int position,int item_per_page);
+  	 
+  	 //获取学生培养
+  	 List<T> getSimpleStudentCultivateInfo(String type,int position,int item_per_page);
 }

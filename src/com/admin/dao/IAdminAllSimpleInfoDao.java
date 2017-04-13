@@ -49,4 +49,7 @@ public interface IAdminAllSimpleInfoDao<T> {
  	 List<T> getSimpleIdentificationInfo(int position, int item_per_page);
  	 //获取论文信息
  	 List<T> getSimpleThesisInfo(int position, int item_per_page);
+ 	 
+ 	 //获取学生培养信息
+ 	 List<T> getSimpleStudentInfo(String type,int position, int item_per_page);
 }

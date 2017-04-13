@@ -278,4 +278,39 @@ public class AddCountImpl implements IAddCount {
 		}	
 	}
 
+	@Override
+	public boolean addStudentCultivateCount(int id) {
+		// TODO Auto-generated method stub
+		Statement stmt=null;
+		Connection con=(Connection) DB.getConn();
+		try{
+		con.setAutoCommit(false);
+		stmt=(Statement) DB.getStmt(con);   
+		String sql1="update sys_student_cultivate a set a.view_count=a.view_count+1 where a.id='"+id+"'";
+		stmt.executeUpdate(sql1);
+		con.commit();
+
+		return true;
+		}catch(Exception e){
+			try {
+				con.rollback();
+				
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			e.printStackTrace();
+			return false;
+		}finally{
+			try {
+				con.setAutoCommit(true);
+				con.close();
+				stmt.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}	
+	}
+
 }

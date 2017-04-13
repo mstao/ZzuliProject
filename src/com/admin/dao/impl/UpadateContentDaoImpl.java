@@ -967,4 +967,44 @@ public class UpadateContentDaoImpl implements IUpdateContentDao {
 		}	
 	}
 
+	/**
+	 * 修改学生培养信息
+	 */
+	@Override
+	public boolean updateStudentCultivateInfo(int id, String title, String content, String author, int is_publish,
+			int is_image) {
+		// TODO Auto-generated method stub
+		Statement stmt=null;
+		Connection con=(Connection) DB.getConn();
+		//获取当前时间
+		String c_date=GetDateUtil.getData();
+		try{
+		con.setAutoCommit(false);
+		stmt=(Statement) DB.getStmt(con);   
+		String sql1="update sys_student_cultivate  set item_title='"+title+"', item_content='"+content+"',add_time='"+c_date+"' , is_publish='"+is_publish+"',is_image='"+is_image+"', author='"+author+"' where id='"+id+"'";
+		stmt.executeUpdate(sql1);
+		con.commit();
+
+		return true;
+		}catch(Exception e){
+			try {
+				con.rollback();
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			e.printStackTrace();
+			return false;
+		}finally{
+			try {
+				con.setAutoCommit(true);
+				con.close();
+				stmt.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}	
+	}
+
 }

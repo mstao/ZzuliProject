@@ -11,7 +11,7 @@
 		<li><a href="${pageContext.request.contextPath}/news.do?type=xsx&p=1">${WEB_NEWS_NAVI}</a></li>
 		<li><a href="${pageContext.request.contextPath}/research.do?type=kyl&p=1">${WEB_RESEARCH_NAVI}</a></li>
 		<li><a href="${pageContext.request.contextPath}/person.do?p=1">${WEB_PERSON_NAVI}</a></li>
-		<li><a href="${pageContext.request.contextPath}/student.do?type=xbp">${WEB_STUDENT_NAVI}</a></li>
+		<li><a href="${pageContext.request.contextPath}/student.do?type=xbp&p=1">${WEB_STUDENT_NAVI}</a></li>
 		<li><a href="${pageContext.request.contextPath}/reward.do">${WEB_RESULT_NAVI}</a></li>
 		<li><a href="${pageContext.request.contextPath}/document.do?p=1">${WEB_DOC_NAVI}</a></li>
 		<li><a href="${pageContext.request.contextPath}/instrument.do?p=1">${WEB_INSTRUMENT_NAVI}</a>

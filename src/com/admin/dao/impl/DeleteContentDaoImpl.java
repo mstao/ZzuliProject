@@ -688,4 +688,45 @@ public class DeleteContentDaoImpl implements IDeleteContentDao {
         return flag;
 	}
 
+	/**
+	 * 删除学生培养信息
+	 */
+	@Override
+	public boolean deleteStudentCultivateInfo(String[] ids) {
+		// TODO Auto-generated method stub
+		boolean flag=false;
+		PreparedStatement ps=null;
+		Connection con=DB.getConn();
+		String sql = "delete from sys_student_cultivate where id=?";  
+        try {  
+        	
+            con.setAutoCommit(false);  
+            ps = con.prepareStatement(sql);  
+            for(int i =0 ;i<ids.length;i++){   
+                ps.setString(1,ids[i].trim());  
+                ps.addBatch();                 
+            }   
+            ps.executeBatch(); //批量执行   
+            con.commit();//提交事务  
+            flag = true;  
+        } catch (SQLException e) {  
+            try {  
+                con.rollback(); //进行事务回滚  
+                flag=false;
+            } catch (SQLException ex) {   
+            }   
+        }finally {  
+        	try {
+				con.setAutoCommit(true);
+				con.close();
+				ps.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+        }   
+        return flag;
+	}
+
 }

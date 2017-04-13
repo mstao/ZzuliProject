@@ -60,4 +60,6 @@ public interface IAddContentDao {
     //添加鉴定
     int AddIdentificationInfo(String name,String identification_number,String person,String time,String level,int is_publish);
     
+    //添加学生培养信息
+    int AddStudentCultivateInfo(String type,String title,String content,String author,int is_publish,int is_image);
 }

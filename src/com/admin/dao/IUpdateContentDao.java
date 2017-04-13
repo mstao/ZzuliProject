@@ -60,5 +60,6 @@ public interface IUpdateContentDao {
     //添加鉴定
     boolean updateIdentificationInfo(int id,String name,String identification_number,String person,String time,String level,int is_publish);
     
-  
+    //修改学生培养信息
+    boolean updateStudentCultivateInfo(int id,String title,String content,String author,int is_publish,int is_image);
 }

@@ -28,6 +28,7 @@ import com.home.web.service.ResultPatentBean;
 import com.home.web.service.ResultRewardsBean;
 import com.home.web.service.ResultThesisBean;
 import com.home.web.service.RulesBean;
+import com.home.web.service.StudentCultivateBean;
 
 /** 
  * @ClassName: AdminSimpleInfoDaoImpl 
@@ -922,6 +923,55 @@ public class AdminSimpleInfoDaoImpl<T> implements IAdminAllSimpleInfoDao<T> {
 			}
 		}
 		return (List<T>) thesis;
+	}
+
+	/**
+	 * 获取学生培养信息列表
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<T> getSimpleStudentInfo(String type, int position, int item_per_page) {
+		// TODO Auto-generated method stub
+		ResultSet rs=null;
+		PreparedStatement ps=null;
+		Connection con=DB.getConn();
+	    String sql1="select sn.id,sn.item_title,sn.add_time,sn.is_publish,snt.type_flag from sys_student_cultivate sn,sys_student_cultivate_type snt where sn.type_id=snt.id and snt.type_flag='"+type+"'  order by add_time desc limit ?,?";
+	    ps=DB.getPstmt(con, sql1);
+	    
+	    try {
+	    	ps.setInt(1, position);
+			ps.setInt(2, item_per_page);
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+	    rs=DB.getRs(ps);
+		List<StudentCultivateBean> student=new ArrayList<StudentCultivateBean>();
+		try {
+			while(rs.next()){
+				StudentCultivateBean nb=new StudentCultivateBean();
+				nb.setId(rs.getInt("sn.id"));
+				nb.setItem_title(rs.getString("sn.item_title"));
+				nb.setAdd_time(rs.getString("sn.add_time"));
+				nb.setType_flag(rs.getString("snt.type_flag"));
+				nb.setIs_publish(rs.getInt("sn.is_publish"));
+				student.add(nb);
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			DB.close(rs);
+			DB.close(con);
+			try {
+				ps.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return (List<T>) student;
 	}
 
 	

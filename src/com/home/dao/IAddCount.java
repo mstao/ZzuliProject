@@ -20,4 +20,6 @@ public interface IAddCount {
 	boolean addInstrumentCount(int id);
 	//大型仪器 -规章制度  浏览量+1
 	boolean addInstrumentRuleCount(int id);
+	//学生培养  +1
+	boolean addStudentCultivateCount(int id);
 }

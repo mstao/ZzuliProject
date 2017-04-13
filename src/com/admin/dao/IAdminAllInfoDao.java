@@ -45,4 +45,6 @@ public interface IAdminAllInfoDao<T> {
    	 T getThesisInfo(int id);
    	 //鉴定
    	 T getIdentificationInfo(int id);
+   	 
+   	 T getStudentInfo(int id);
 }

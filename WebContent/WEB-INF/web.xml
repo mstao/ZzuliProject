@@ -445,21 +445,14 @@
     <servlet-name>ShowStudentInfoServlet</servlet-name>
     <url-pattern>/showstudent.ado</url-pattern>
   </servlet-mapping>
+ 
   <servlet>
-    <servlet-name>DistributeStudentInfoServlet</servlet-name>
-    <servlet-class>com.admin.web.servlet.DistributeStudentInfoServlet</servlet-class>
+    <servlet-name>AddStudentServlet</servlet-name>
+    <servlet-class>com.admin.web.servlet.AddStudentServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>DistributeStudentInfoServlet</servlet-name>
-    <url-pattern>/updatestudent.ado</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>AddUpdateStudentServlet</servlet-name>
-    <servlet-class>com.admin.web.servlet.AddUpdateStudentServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>AddUpdateStudentServlet</servlet-name>
-    <url-pattern>/dealupdateStudent.ado</url-pattern>
+    <servlet-name>AddStudentServlet</servlet-name>
+    <url-pattern>/dealaddStudent.ado</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>ShowEmployInfoServlet</servlet-name>
@@ -1077,9 +1070,7 @@
     <servlet-name>UpdateThesisServlet</servlet-name>
     <url-pattern>/dealupdatethesis.ado</url-pattern>
   </servlet-mapping>
-  
-  <!-- 删除 -->
-   <servlet>
+  <servlet>
     <servlet-name>DeleteFoundationServlet</servlet-name>
     <servlet-class>com.admin.web.servlet.DeleteFoundationServlet</servlet-class>
   </servlet>
@@ -1087,8 +1078,7 @@
     <servlet-name>DeleteFoundationServlet</servlet-name>
     <url-pattern>/deletefoundation.ado</url-pattern>
   </servlet-mapping>
-  
-     <servlet>
+  <servlet>
     <servlet-name>DeleteProvincialServlet</servlet-name>
     <servlet-class>com.admin.web.servlet.DeleteProvincialServlet</servlet-class>
   </servlet>
@@ -1096,8 +1086,7 @@
     <servlet-name>DeleteProvincialServlet</servlet-name>
     <url-pattern>/deleteprovincial.ado</url-pattern>
   </servlet-mapping>
-  
-     <servlet>
+  <servlet>
     <servlet-name>DeleteHorizontalCooperationServlet</servlet-name>
     <servlet-class>com.admin.web.servlet.DeleteHorizontalCooperationServlet</servlet-class>
   </servlet>
@@ -1105,8 +1094,7 @@
     <servlet-name>DeleteHorizontalCooperationServlet</servlet-name>
     <url-pattern>/deletecooperation.ado</url-pattern>
   </servlet-mapping>
-  
-    <servlet>
+  <servlet>
     <servlet-name>DeleteResultRewardsServlet</servlet-name>
     <servlet-class>com.admin.web.servlet.DeleteResultRewardsServlet</servlet-class>
   </servlet>
@@ -1114,8 +1102,7 @@
     <servlet-name>DeleteResultRewardsServlet</servlet-name>
     <url-pattern>/deleterewards.ado</url-pattern>
   </servlet-mapping>
-  
-   <servlet>
+  <servlet>
     <servlet-name>DeleteResultPatentServlet</servlet-name>
     <servlet-class>com.admin.web.servlet.DeleteResultPatentServlet</servlet-class>
   </servlet>
@@ -1123,8 +1110,7 @@
     <servlet-name>DeleteResultPatentServlet</servlet-name>
     <url-pattern>/deletepatent.ado</url-pattern>
   </servlet-mapping>
-  
-   <servlet>
+  <servlet>
     <servlet-name>DeleteResultThesisServlet</servlet-name>
     <servlet-class>com.admin.web.servlet.DeleteResultThesisServlet</servlet-class>
   </servlet>
@@ -1132,7 +1118,6 @@
     <servlet-name>DeleteResultThesisServlet</servlet-name>
     <url-pattern>/deletethesis.ado</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>DeleteResultIdentificationServlet</servlet-name>
     <servlet-class>com.admin.web.servlet.DeleteResultIdentificationServlet</servlet-class>
@@ -1140,6 +1125,41 @@
   <servlet-mapping>
     <servlet-name>DeleteResultIdentificationServlet</servlet-name>
     <url-pattern>/deleteidentification.ado</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>LoadDetailsStudentInfoServlet</servlet-name>
+    <servlet-class>com.home.web.servlet.LoadDetailsStudentInfoServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoadDetailsStudentInfoServlet</servlet-name>
+    <url-pattern>/studentdetails.do</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+    <servlet-name>UpdateStudentCultivateServlet</servlet-name>
+    <servlet-class>com.admin.web.servlet.UpdateStudentCultivateServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateStudentCultivateServlet</servlet-name>
+    <url-pattern>/dealupdatestudent.ado</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+    <servlet-name>DeleteStudentCultivateServlet</servlet-name>
+    <servlet-class>com.admin.web.servlet.DeleteStudentCultivateServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteStudentCultivateServlet</servlet-name>
+    <url-pattern>/deletestudent.ado</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+    <servlet-name>DistributeStudentCultivateServlet</servlet-name>
+    <servlet-class>com.admin.web.servlet.DistributeStudentCultivateServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DistributeStudentCultivateServlet</servlet-name>
+    <url-pattern>/updatestudent.ado</url-pattern>
   </servlet-mapping>
   
 </web-app>

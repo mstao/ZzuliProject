@@ -10,6 +10,8 @@
 <link type="text/css" href="${pageContext.request.contextPath}/home/css/header.css" rel="stylesheet"/>
 <link type="text/css" href="${pageContext.request.contextPath}/home/css/comm.css" rel="stylesheet"/>
 <link type="text/css" href="${pageContext.request.contextPath}/home/css/tab.css" rel="stylesheet"/>
+<script type="text/javascript" src="${pageContext.request.contextPath}/home/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/home/js/common.js"></script>
 </head>
 <body>
 	<%--S header--%>
@@ -22,23 +24,29 @@
 			<span class="common-tag">&nbsp;${WEB_STUDENT_NAVI}</span>
 	        <div class="example-img"><img src="${pageContext.request.contextPath}/home/img/notice.png"/></div>
 			<ul>
-			<li><a href="${pageContext.request.contextPath}/student.do?type=xbp" >${WEB_STUDENT_BEN}</a></li>
-			<li><a href="${pageContext.request.contextPath}/student.do?type=xyp" >${WEB_STUDENT_YAN}</a></li>
-			<li><a href="${pageContext.request.contextPath}/student.do?type=xxp" >${WEB_STUDENT_RESULT}</a></li>				
+			<li><a href="${pageContext.request.contextPath}/student.do?type=xbp&p=1" >${WEB_STUDENT_BEN}</a></li>
+			<li><a href="${pageContext.request.contextPath}/student.do?type=xyp&p=1" >${WEB_STUDENT_YAN}</a></li>
+			<li><a href="${pageContext.request.contextPath}/student.do?type=xxp&p=1" >${WEB_STUDENT_RESULT}</a></li>				
 			</ul>
 		</div>
 		<!--S 左边导航栏-->
 		
 		<!--S 右边显示内容-->
 		<div class="right-content">
-			<div class="now-loaction-navi">您现在所在位置: <a href="${pageContext.request.contextPath}/index.do">首页</a> - <a href="${pageContext.request.contextPath}/student.do?type=xbp">${WEB_STUDENT_NAVI}</a> - <a href="javascript:void(0);">${type_name}</a></div>
-			<!--S 具体内容-->
-		    <div class="details-content-text">
-		    	<c:forEach items="${stu}" var="student">
-		    	${student.item_content}
-		   		</c:forEach>
-		    </div>
+			<div class="now-loaction-navi">您现在所在位置: <a href="${pageContext.request.contextPath}/index.do">首页</a> - <a href="${pageContext.request.contextPath}/student.do?type=xbp&p=1">${WEB_STUDENT_NAVI}</a> - <a href="javascript:void(0);">${type_name}</a></div>
+			 <!--S 具体内容-->
+		   <div class="details-content">
+		   	<ul>
+		   	
+		   	   <c:forEach items="${stu}" var="stu_list">
+		   		 <li><img src="${pageContext.request.contextPath}/home/img/j_do.png" class="dot"/> <a href="${pageContext.request.contextPath}/studentdetails.do?id=${stu_list.id}&type=${stu_list.type_flag}">${stu_list.item_title}</a><img src="${pageContext.request.contextPath}/home/img/hot.gif"/><span class="pub-data sub-time">[${stu_list.add_time}]</span></li>
+		   	   </c:forEach> 
+		   	</ul>
+		   </div>
 		   <!--E 具体内容-->
+		   <!--S 分页工具导航  -->
+		   ${toolbar}
+		   <!--E 分页工具导航  -->
 		</div>
 		<!--E 右边显示内容-->
 		

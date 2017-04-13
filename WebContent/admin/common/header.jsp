@@ -80,9 +80,9 @@ $(function(){
                  
                  <li><a href="javascript:void(0);">${WEB_STUDENT_NAVI}</a>
                  	<ul class="dropdown-menu follow">
-							<li><a href="${pageContext.request.contextPath}/showstudent.ado?type=xbp">${WEB_STUDENT_BEN}</a></li>
-							<li><a href="${pageContext.request.contextPath}/showstudent.ado?type=xyp">${WEB_STUDENT_YAN}</a></li>
-							<li><a href="${pageContext.request.contextPath}/showstudent.ado?type=xxp">${WEB_STUDENT_RESULT}</a></li>	
+							<li><a href="${pageContext.request.contextPath}/showstudent.ado?type=xbp&p=1">${WEB_STUDENT_BEN}</a></li>
+							<li><a href="${pageContext.request.contextPath}/showstudent.ado?type=xyp&p=1">${WEB_STUDENT_YAN}</a></li>
+							<li><a href="${pageContext.request.contextPath}/showstudent.ado?type=xxp&p=1">${WEB_STUDENT_RESULT}</a></li>	
 					</ul>
                  </li>
                  

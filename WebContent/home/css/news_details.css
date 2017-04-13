@@ -52,6 +52,7 @@
 }
 .newsinfo .news-content{
 	margin-top: 20px;
+	line-height: 30px;
 }
 .newsinfo .news-content p{
 	text-indent: 2em;

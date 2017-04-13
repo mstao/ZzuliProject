@@ -1189,4 +1189,58 @@ public class AddContentDaoImpl implements IAddContentDao {
 		}
 		return id;
 	}
+
+	/**
+	 * 添加学生培养信息
+	 */
+	@Override
+	public int AddStudentCultivateInfo(String type, String title, String content, String author, int is_publish,
+			int is_image) {
+		// TODO Auto-generated method stub
+		ResultSet rs=null;
+		PreparedStatement ps=null;
+		Connection con=DB.getConn();
+		int id = 0;		
+		//获取当前时间
+		String c_data=GetDateUtil.getData();
+		//根据类型获取类型id
+		int type_id=new AllTypeIdImpl().getStudentTypeId(type);
+		String sql="insert into sys_student_cultivate(item_title,item_content,add_time,type_id,author,is_publish,is_image) values(?,?,?,?,?,?,?)";
+	    try {
+	    	
+			
+			ps=(PreparedStatement)con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+		    ps.setString(1, title);
+		    ps.setString(2,content);
+		    ps.setString(3, c_data);
+		    ps.setInt(4, type_id);
+		    ps.setString(5, author);
+		    ps.setInt(6, is_publish);
+		    ps.setInt(7, is_image);
+		    
+		    ps.executeUpdate();
+		    rs=ps.getGeneratedKeys();
+		    if(rs.next()){
+		    	id=rs.getInt(1);
+		    }
+		    
+	    } catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			try {
+				con.close();
+				ps.close();
+			    rs.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+	
+		}
+		
+        
+		return id;
+	}
 }

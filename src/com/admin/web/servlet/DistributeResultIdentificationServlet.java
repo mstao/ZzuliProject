@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.admin.dao.impl.AdminAllInfoDaoImpl;
 import com.home.web.service.ResultIdentificationBean;
-import com.home.web.service.ResultPatentBean;
 
 /**
  * Servlet implementation class DistributeResultIdentificationServlet

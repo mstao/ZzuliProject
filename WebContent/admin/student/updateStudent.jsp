@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -33,55 +33,9 @@ request.setAttribute("type_flag",type_flag);
 				fb.style.backgroundColor="#F6F6F3";
 	    }
     }
-	//刷新恢复下拉框的默认值
-	function resetSelect(){
-		var s=document.getElementById('publish-style');
-		var os=s.options;
-		for(var i=0;os.length;i++){
-			if(os[i].selected!=os[i].defaultSelected){
-				os[i].selected=os[i].defaultSelected;
-			}
-		}
-	}
-	window.onload=resetSelect;
+
 	
-	$(function(){
-		
-		//根据传过来的类型进行渲染页面
-		   if("${type_flag}"=='xbp'){
-			   	$('.edit-span').text('撰写${WEB_STUDENT_BEN}');
-			   	$('.content-span').text('${WEB_STUDENT_BEN}内容');
-			 
-		   }else if("${type_flag}"=='xyp'){
-		   		$('.edit-span').text('撰写${WEB_STUDENT_YAN}');
-		   	    $('.content-span').text('${WEB_STUDENT_YAN}内容');
-		   		
-		   }else if("${type_flag}"=='xxp'){
-		   	    $('.edit-span').text('撰写${WEB_STUDENT_RESULT}');
-		   	    $('.content-span').text('${WEB_STUDENT_RESULT}内容');
-		   	    
-		   }
-		
-		   $('#publish-style').change(function(){
-			   
-			   var cv=$('#publish-style').val();
-			   if(cv=='xbp'){
-				   	$('.edit-span').text('撰写${WEB_STUDENT_BEN}');
-				   	$('.content-span').text('${WEB_STUDENT_BEN}内容');
-				 
-			   }else if(cv=='xyp'){
-			   		$('.edit-span').text('撰写${WEB_STUDENT_YAN}');
-			   	    $('.content-span').text('${WEB_STUDENT_YAN}内容');
-			   		
-			   }else if(cv=='xxp'){
-			   	    $('.edit-span').text('撰写${WEB_STUDENT_RESULT}');
-			   	    $('.content-span').text('${WEB_STUDENT_RESULT}内容');
-			   	    
-			   }
-
-
-			});
-	});
+	
 </script>
    
 </head>
@@ -95,20 +49,18 @@ request.setAttribute("type_flag",type_flag);
 	<!--S 编辑区域-->
 	<div class="edit-div"> 
 
-		<span class="edit-span">撰写${type_name}
-		<c:forEach items="${student}" var="student_details">
-		   <c:if test="${student_details.is_publish eq 0}"><b>草稿</b></c:if>
-		</c:forEach>
+		<span class="edit-span">修改${type_name}<c:if test="${stu_details.is_publish eq 0}"><b>草稿</b></c:if>
+	
 		</span>
 		<span class="title-span">标题</span>
-		<input type="text" name="eidt_title" class="edit-title" placeholder="标题"> 
+		<input type="text" name="eidt_title" class="edit-title" placeholder="标题" value="${stu_details.item_title}"> 
 		<span class="content-span">${type_name}内容</span>
 		
 		<!--S 编辑器 -->              
         <div id="editor-container" class="container">
-        <div id="editor-trigger"><c:forEach items="${student}" var="student_info">${student_info.item_content}</c:forEach></div>
+        <div id="editor-trigger">${stu_details.item_content}</div>
         </div>
-       
+        <input type="hidden" class="hide-id" value="${stu_details.id}">
         <!--E 编辑器  -->
         <div class="edit-submit">
             <input type="hidden" id="hidden-isnull-content" value=""/>
@@ -134,10 +86,7 @@ request.setAttribute("type_flag",type_flag);
 		    <span class="publish-dept-span">分类(${WEB_STUDENT_NAVI})</span>
 		    <select name="publish_style" id="publish-style">
 		    
-		    	<option value="xbp" <c:if test="${type_flag eq 'xbp'}">selected="true"</c:if> >${WEB_STUDENT_BEN}</option>
-		    	<option value="xyp" <c:if test="${type_flag eq 'xyp'}">selected="true"</c:if> >${WEB_STUDENT_YAN}</option>
-		    	<option value="xxp" <c:if test="${type_flag eq 'xxp'}">selected="true"</c:if> >${WEB_STUDENT_RESULT}</option>
-		    	
+		    <option value="${type}"selected="true">${type_name}</option>
 		    </select>
 		    
 		</div>
@@ -223,7 +172,7 @@ $(function(){
     
     /**************添加学生培养相关 AJAX 发布***************/
 	$('.publish-student-btn').bind('click',function(){
-		
+		var id=$('.hide-id').val();
 		var title=$('.edit-title').val();
 		//获取发表类型
 		var type=$('#publish-style').val();
@@ -233,7 +182,7 @@ $(function(){
 		var publish_dept=$('.publish-dept').val();
 		//获取内容的纯文本  
 		var text_content=editor.$txt.text();
-
+         
 		//alert(intro_id);
 		//判断内容和发布部门是否为空
 		if(text_content=="" ||publish_dept==""){
@@ -250,8 +199,8 @@ $(function(){
 			$.ajax({
 				type:'post',
 				dataType:'text',
-				url:CTPPATH+'/dealaddStudent.ado',
-				data:{"type":type,"title":title,"content":content,"author":publish_dept,"is_image":is_image,"is_publish":is_publish},
+				url:CTPPATH+'/dealupdatestudent.ado',
+				data:{"id":id,"type":type,"title":title,"content":content,"author":publish_dept,"is_image":is_image,"is_publish":is_publish},
 				beforeSend:function(){
 					//显示正在加载
 					layer.load(2);
@@ -285,7 +234,7 @@ $(function(){
 	/**************添加学生培养相关 AJAX 存为草稿***************/
 	
 	$('.draft-student-btn').bind('click',function(){
-		
+		var id=$('.hide-id').val();
 		var title=$('.edit-title').val();
 		//获取发表类型
 		var type=$('#publish-style').val();
@@ -312,8 +261,8 @@ $(function(){
 			$.ajax({
 				type:'post',
 				dataType:'text',
-				url:CTPPATH+'/dealaddStudent.ado',
-				data:{"type":type,"title":title,"content":content,"author":publish_dept,"is_image":is_image,"is_publish":is_publish},
+				url:CTPPATH+'/dealupdatestudent.ado',
+				data:{"id":id,"type":type,"title":title,"content":content,"author":publish_dept,"is_image":is_image,"is_publish":is_publish},
 				beforeSend:function(){
 					//显示正在加载
 					layer.load(2);

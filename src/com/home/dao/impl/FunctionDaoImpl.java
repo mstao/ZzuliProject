@@ -119,7 +119,7 @@ public class FunctionDaoImpl {
 		ResultSet rs=null;
 	    DBMeans ss=new DBMeans();
 	    //根据type查询出类型id
-	    String sql1="select type_name from sys_student_type where type_flag='"+type_flag+"'";
+	    String sql1="select type_name from sys_student_cultivate_type where type_flag='"+type_flag+"'";
 	    rs=ss.Search(sql1);
 	    String type_name = null;
 	    try {

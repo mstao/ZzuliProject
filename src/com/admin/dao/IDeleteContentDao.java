@@ -39,4 +39,7 @@ public interface IDeleteContentDao {
 	boolean  deleteThesis(String[] ids);
 	//删除鉴定
 	boolean  deleteIdentification(String[] ids);
+	
+	//删除 学生培养信息
+	boolean  deleteStudentCultivateInfo(String[] ids);
 }

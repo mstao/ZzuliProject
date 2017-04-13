@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.admin.dao.impl.AddContentDaoImpl;
-import com.admin.dao.impl.UpadateContentDaoImpl;
 
 /**
  * Servlet implementation class AddUpdateStudentServlet
@@ -21,13 +20,14 @@ import com.admin.dao.impl.UpadateContentDaoImpl;
  * @date 2016年12月29日 下午8:28:37  
  */
 @WebServlet("/AddUpdateStudentServlet")
-public class AddUpdateStudentServlet extends HttpServlet {
+public class AddStudentServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
+     * 
      * @see HttpServlet#HttpServlet()
      */
-    public AddUpdateStudentServlet() {
+    public AddStudentServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -47,31 +47,24 @@ public class AddUpdateStudentServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		response.setContentType("text/html; charset=utf-8");
         request.setCharacterEncoding("UTF-8");
-		String i_id=request.getParameter("id");
-		String i_ui=request.getParameter("ui");
+		
 		String type=request.getParameter("type");
+		String title=request.getParameter("title");
 	    String content=request.getParameter("content");
 	    String author=request.getParameter("author");
 	    String s_is_publish=request.getParameter("is_publish");
-	    int is_publish=Integer.parseInt(s_is_publish);
-	    int iid=Integer.parseInt(i_id);
-	    int ui=Integer.parseInt(i_ui);
-	    int pid=0;
-	    //判断请求类型   ui 为1 为发布内容 ,0为更新内容
-	    if(ui==1){
-	    	pid=new AddContentDaoImpl().AddStudentInfo(type, content, author, is_publish);
-	    }else if(ui==0){
-	        boolean b_id=new UpadateContentDaoImpl().updateStudentInfo(iid, content, author, is_publish);
-	        if(b_id==true){
-	        	pid=1;
-	        }else{
-	        	pid=0;
-	        }
-	    }
+	    String s_is_image=request.getParameter("is_image");
 	    
+	   // System.out.println(content+"----"+title+"-----"+author);
+        //将is_publish 转为整形	
+	    int is_publish=Integer.parseInt(s_is_publish);
+
+	    //将is_image 转为整形
+	    int is_image=Integer.parseInt(s_is_image);
+	    int id=new AddContentDaoImpl().AddStudentCultivateInfo(type, title, content, author, is_publish, is_image);
 	    String rs;
-	    if(pid>0){
-	    	rs=String.valueOf(pid);
+	    if(id>0){
+	    	rs=String.valueOf(id);
 	    }else{
 	    	rs="0";
 	    }
