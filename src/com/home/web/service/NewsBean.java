@@ -16,6 +16,8 @@ public class NewsBean implements Serializable{
 	private String item_content;
 	private String author;
 	private String type_flag;
+	private String image_path;
+	
 	public Integer getId() {
 		return id;
 	}
@@ -69,6 +71,12 @@ public class NewsBean implements Serializable{
 	}
 	public void setType_flag(String type_flag) {
 		this.type_flag = type_flag;
+	}
+	public String getImage_path() {
+		return image_path;
+	}
+	public void setImage_path(String image_path) {
+		this.image_path = image_path;
 	}
 	
 	

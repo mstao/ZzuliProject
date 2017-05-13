@@ -74,14 +74,7 @@
     		    }
     		}); 
     		
-    		//图片轮播 动态获取第一张图片
-    		$('.slider-li').each(function(){
-    			//获取内容的第一张图片url
-    			var s_n_s=$(this).find('.hide-content-slider').find("img[src!='']:first").attr('src');
-    			//将图片url添加到图片显示区域src
-    			$(">a>img",this).attr('src',s_n_s);
-    		});
-    	
+    		
     	});
 </script>
 	</head>
@@ -99,7 +92,7 @@
 		<div class="slider"><%--主体结构，请用此类名调用插件，此类名可自定义--%>
 		<ul>
 	    <c:forEach items="${slidernews}" var="s_news_list">  
-			<li class="slider-li"><a href="${pageContext.request.contextPath}/newsdetails.do?id=${s_news_list.id}&type=xsx" target="_blank" ><img src="" alt="${s_news_list.item_title}"  /></a><div class="hide-content-slider" style="visibility: hidden;">${s_news_list.item_content}</div></li>
+			<li class="slider-li"><a href="${pageContext.request.contextPath}/newsdetails.do?id=${s_news_list.id}&type=xsx" target="_blank" ><img src="${s_news_list.image_path}" alt="${s_news_list.item_title}"  /></a></li>
 		</c:forEach>	
 		</ul>
 	    </div>

@@ -53,13 +53,13 @@ public class AddNewsServlet extends HttpServlet {
 	    String author=request.getParameter("author");
 	    String s_is_publish=request.getParameter("is_publish");
 	    String s_is_image=request.getParameter("is_image");
-	    
+	    String image_path=request.getParameter("image_path");
 	   // System.out.println(content+"----"+title+"-----"+author);
         //将is_publish 转为整形	
 	    int is_publish=Integer.parseInt(s_is_publish);
 	    //将is_image 转为整形
 	    int is_image=Integer.parseInt(s_is_image);
-	    int id=new AddContentDaoImpl().AddNewsInfo(type, title, content, author, is_publish, is_image);
+	    int id=new AddContentDaoImpl().AddNewsInfo(type, title, content, author, is_publish, is_image,image_path);
 	    String rs;
 	    if(id>0){
 	    	rs=String.valueOf(id);

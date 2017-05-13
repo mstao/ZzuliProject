@@ -451,7 +451,7 @@ public class AllInfoDaoImpl<T> implements IAllInfo<T> {
 		// TODO Auto-generated method stub
 		ResultSet rs=null;
 	    DBMeans ss=new DBMeans();
-	    String sql1="select sn.id,sn.item_title,sn.item_content from sys_news sn,sys_news_type snt where sn.news_type_id=snt.id and snt.type_flag='"+type+"'  and sn.is_publish=1 and sn.is_image=1 order by sn.add_time desc limit 0,5";
+	    String sql1="select sn.id,sn.item_title,sn.image_path from sys_news sn,sys_news_type snt where sn.news_type_id=snt.id and snt.type_flag='"+type+"'  and sn.is_publish=1 and sn.is_image=1 order by sn.add_time desc limit 0,5";
 	    rs=ss.Search(sql1);
 		List<NewsBean> news=new ArrayList<NewsBean>();
 		try {
@@ -459,7 +459,7 @@ public class AllInfoDaoImpl<T> implements IAllInfo<T> {
 				NewsBean nb=new NewsBean();
 				nb.setId(rs.getInt("sn.id"));
 				nb.setItem_title(rs.getString("sn.item_title"));
-				nb.setItem_content(rs.getString("sn.item_content"));
+				nb.setImage_path(rs.getString("sn.image_path"));
 				news.add(nb);
 			}
 			

@@ -63,7 +63,7 @@ public class UpadateContentDaoImpl implements IUpdateContentDao {
 	 */
 	@Override
 	public boolean updateNewsInfo(int id, String title,String content, 
-			String author, int is_publish, int is_image) {
+			String author, int is_publish, int is_image,String image_path) {
 		// TODO Auto-generated method stub
 		Statement stmt=null;
 		Connection con=(Connection) DB.getConn();
@@ -72,7 +72,7 @@ public class UpadateContentDaoImpl implements IUpdateContentDao {
 		try{
 		con.setAutoCommit(false);
 		stmt=(Statement) DB.getStmt(con);   
-		String sql1="update sys_news  set item_title='"+title+"', item_content='"+content+"',add_time='"+c_date+"' , is_publish='"+is_publish+"',is_image='"+is_image+"', author='"+author+"' where id='"+id+"'";
+		String sql1="update sys_news  set item_title='"+title+"', item_content='"+content+"',add_time='"+c_date+"' , is_publish='"+is_publish+"',is_image='"+is_image+"', author='"+author+"',image_path='"+image_path+"' where id='"+id+"'";
 		stmt.executeUpdate(sql1);
 		con.commit();
 

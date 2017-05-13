@@ -186,19 +186,27 @@
         		if(title=="" || text_content=="" ||publish_dept==""){
         			layer.msg("标题,内容和发布部门不能为空");
         		}else{
+        			
+        			var is_publish=1; //意味着要发表1，不是存为草稿0
         			//判断内容里面是否含有图片 ,有图片设为1，无图片设为0
             		var is_image;
+            		var img_path="";
+            		var s_json;
             		if(editor.$txt.find("img[src!='']").length>0){
             			is_image=1;
+            			img_path=editor.$txt.find("img[src!='']:first").attr("src");
+            			s_json={"type":type,"title":title,"content":content,"author":publish_dept,"is_image":is_image,"is_publish":is_publish,"image_path":img_path};
             		}else{
             			is_image=0;
+            			img_path="0";
+            			s_json={"type":type,"title":title,"content":content,"author":publish_dept,"is_image":is_image,"is_publish":is_publish,"image_path":img_path};
             		}
-            		var is_publish=1; //意味着要发表1，不是存为草稿0
+            		
         			$.ajax({
         				type:'post',
         				dataType:'text',
         				url:CTPPATH+'/addnews.ado',
-        				data:{"type":type,"title":title,"content":content,"author":publish_dept,"is_image":is_image,"is_publish":is_publish},
+        				data:s_json,
         				/*data:"type="+type+"&title="+title+"&content="+content+"&author="+publish_dept+"&is_image="+is_image+"&is_publish="+is_publish,*/
         				beforeSend:function(){
         					//显示正在加载
@@ -255,19 +263,26 @@
         		if(title=="" || text_content=="" ||publish_dept==""){
         			layer.msg("标题,内容和发布部门不能为空");
         		}else{
+        			
+        			var is_publish=0; //意味着要发表1，不是存为草稿0
         			//判断内容里面是否含有图片 ,有图片设为1，无图片设为0
             		var is_image;
+            		var img_path="";
+            		var s_json;
             		if(editor.$txt.find("img[src!='']").length>0){
             			is_image=1;
+            			img_path=editor.$txt.find("img[src!='']:first").attr("src");
+            			s_json={"type":type,"title":title,"content":content,"author":publish_dept,"is_image":is_image,"is_publish":is_publish,"image_path":img_path};
             		}else{
             			is_image=0;
+            			s_json={"type":type,"title":title,"content":content,"author":publish_dept,"is_image":is_image,"is_publish":is_publish};
             		}
-            		var is_publish=0; //存为草稿0
+            		
         			$.ajax({
         				type:'post',
         				dataType:'text',
         				url:CTPPATH+'/addnews.ado',
-        				data:{"type":type,"title":title,"content":content,"author":publish_dept,"is_image":is_image,"is_publish":is_publish},
+        				data:s_json,
         				/*data:"type="+type+"&title="+title+"&content="+content+"&author="+publish_dept+"&is_image="+is_image+"&is_publish="+is_publish,*/
         				beforeSend:function(){
         					//显示正在加载
@@ -281,7 +296,7 @@
         					}, 1000);
         					
         					if(data>0){
-        						layer.msg('保存为草稿成功，您可以在列表中查看编辑', {icon: 1,time:2000});
+        						layer.msg('发布成功，您可以在列表中查看', {icon: 1,time:2000});
         						$('.hidden-item-id').val(data);
         						//判断有无上传文件列队
         						if(getQueueSize("uploadify")>0){
@@ -293,7 +308,7 @@
         						}
         						
         					}else{
-        						layer.msg("保存为草稿出错了", {icon: 2,time:2000});
+        						layer.msg("发布出错了", {icon: 2,time:2000});
         					}
         				},
         				error:function(){

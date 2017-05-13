@@ -7,7 +7,7 @@ package com.admin.dao;
  */
 public interface IAddContentDao {
      //添加新闻公告
-	int AddNewsInfo(String type,String title,String content,String author,int is_publish,int is_image);
+	int AddNewsInfo(String type,String title,String content,String author,int is_publish,int is_image,String image_path);
 	//添加规章制度
 	int AddRuleInfo(String title,String content,String author,int is_publish);
     //添加科学研究

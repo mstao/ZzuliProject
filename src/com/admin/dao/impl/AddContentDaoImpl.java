@@ -23,7 +23,7 @@ public class AddContentDaoImpl implements IAddContentDao {
 	 * 添加新闻公告信息
 	 */
 	@Override
-	public int AddNewsInfo(String type,String title,String content,String author,int is_publish,int is_image) {
+	public int AddNewsInfo(String type,String title,String content,String author,int is_publish,int is_image,String image_path) {
 		// TODO Auto-generated method stub
 		
 		ResultSet rs=null;
@@ -34,7 +34,7 @@ public class AddContentDaoImpl implements IAddContentDao {
 		String c_data=GetDateUtil.getData();
 		//根据类型获取类型id
 		int type_id=new AllTypeIdImpl().getNewsTypeId(type);
-		String sql="insert into sys_news(item_title,item_content,add_time,news_type_id,author,is_publish,is_image) values(?,?,?,?,?,?,?)";
+		String sql="insert into sys_news(item_title,item_content,add_time,news_type_id,author,is_publish,is_image,image_path) values(?,?,?,?,?,?,?,?)";
 	    try {
 	    	
 			
@@ -46,6 +46,8 @@ public class AddContentDaoImpl implements IAddContentDao {
 		    ps.setString(5, author);
 		    ps.setInt(6, is_publish);
 		    ps.setInt(7, is_image);
+		    ps.setString(8, image_path);
+		    
 		    
 		    ps.executeUpdate();
 		    rs=ps.getGeneratedKeys();
