@@ -63,12 +63,12 @@ public class UpadateContentDaoImpl implements IUpdateContentDao {
 	 */
 	@Override
 	public boolean updateNewsInfo(int id, String title,String content, 
-			String author, int is_publish, int is_image,String image_path) {
+			String author, int is_publish, int is_image,String image_path,String add_time) {
 		// TODO Auto-generated method stub
 		Statement stmt=null;
 		Connection con=(Connection) DB.getConn();
 		//获取当前时间
-		String c_date=GetDateUtil.getData();
+		String c_date = add_time;
 		try{
 		con.setAutoCommit(false);
 		stmt=(Statement) DB.getStmt(con);   

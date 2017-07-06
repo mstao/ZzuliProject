@@ -9,12 +9,15 @@
 <title>撰写内容-后台管理</title>
 <link href="${pageContext.request.contextPath}/admin/css/admin_header.css" rel="stylesheet" type="text/css" />
 <link href="${pageContext.request.contextPath}/admin/css/edit.css" rel="stylesheet" type="text/css" />
+<link href="${pageContext.request.contextPath}/admin/css/date.css" rel="stylesheet" type="text/css"/>
 <link href="${pageContext.request.contextPath}/admin/static/wangEditor/dist/css/wangEditor.min.css" rel="stylesheet" type="text/css"/>
 <link href="${pageContext.request.contextPath}/admin/static/uploadify/css/uploadify.css" rel="stylesheet" type="text/css"/>
-<script src="${pageContext.request.contextPath}/admin/static/uploadify/js/jquery-1.9.1.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/admin/js/jquery-1.8.3.js" type="text/javascript"></script>
 <script src="${pageContext.request.contextPath}/admin/static/layer-2.4/layer.js" type="text/javascript"></script>
 <script src="${pageContext.request.contextPath}/admin/static/uploadify/js/jquery.uploadify.min.js" type="text/javascript"></script>
 <script src="${pageContext.request.contextPath}/admin/js/common.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/admin/js/jquery.date_input.pack.js" type="text/javascript"></script>
+
 <%
 String type_flag=request.getParameter("type");
 request.setAttribute("type_flag",type_flag);
@@ -80,7 +83,7 @@ request.setAttribute("type_flag",type_flag);
 	
 	$(function() {
 		
-		
+	  
 		//根据传过来的类型进行渲染页面
 	   if("${type_flag}"=='xsx'){
 		   	$('.edit-span').text('撰写${WEB_NEWS_NEWS}');
@@ -254,6 +257,10 @@ request.setAttribute("type_flag",type_flag);
 		<div class="options-checked-div" id="s">
 			<span class="publish-dept-span">发布部门</span>
 			<input type="text" name="publish_dept" class="publish-dept" value="${WEB_FOOTER_COPY}">
+		    <span class="publish-dept-span">发布时间</span>
+		    <div id="date-div">
+		    <input type="text"  class="date_picker" value="">
+		    </div>
 		    <span class="publish-dept-span">分类(${WEB_NEWS_NAVI})</span>
 		    <select name="publish_style" id="publish-style">
 		    	<option value="xsx" <c:if test="${type_flag eq 'xsx'}">selected="true"</c:if> >${WEB_NEWS_NEWS}</option>
@@ -288,3 +295,48 @@ request.setAttribute("type_flag",type_flag);
 </html>
 <script type="text/javascript" src="${pageContext.request.contextPath}/admin/static/wangEditor/dist/js/wangEditor.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/admin/js/Editor.js"></script>
+<script type="text/javascript">
+$('.date_picker').date_input();
+//时间     - 年月日
+function showLocale(){
+	var date = new Date();
+    var seperator1 = "-";
+    var month = date.getMonth() + 1;
+    var strDate = date.getDate();
+    if (month >= 1 && month <= 9) {
+        month = "0" + month;
+    }
+    if (strDate >= 0 && strDate <= 9) {
+        strDate = "0" + strDate;
+    }
+    
+    var hh = date.getHours();
+	if(hh<10) hh = '0' + hh;
+	var mm = date.getMinutes();
+	if(mm<10) mm = '0' + mm;
+	var ss = date.getSeconds();
+	if(ss<10) ss = '0' + ss;
+	
+	
+    var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate;
+    
+    return currentdate;
+}
+
+//时间  -时分秒
+function hms(){
+	var date = new Date();
+	var hh = date.getHours();
+	if(hh<10) hh = '0' + hh;
+	var mm = date.getMinutes();
+	if(mm<10) mm = '0' + mm;
+	var ss = date.getSeconds();
+	if(ss<10) ss = '0' + ss;
+	
+	var hms=hh+":"+mm+":"+ss;
+	return hms;
+}
+$(function(){
+	  $('.date_picker').val(showLocale());
+});
+</script>

@@ -53,6 +53,7 @@ public class UpdateNewsInfoServlet extends HttpServlet {
 	    String s_is_publish=request.getParameter("is_publish");
 	    String s_is_image=request.getParameter("is_image");
 	    String image_path=request.getParameter("image_path");
+	    String add_time = request.getParameter("add_time");
 	   // System.out.println(content+"----"+title+"-----"+author);
 	    //将id转为整形
 	    int nid=Integer.parseInt(s_id);
@@ -60,7 +61,7 @@ public class UpdateNewsInfoServlet extends HttpServlet {
 	    int is_publish=Integer.parseInt(s_is_publish);
 	    //将is_image 转为整形
 	    int is_image=Integer.parseInt(s_is_image);
-	    boolean bid=new UpadateContentDaoImpl().updateNewsInfo(nid, title, content, author, is_publish, is_image,image_path);
+	    boolean bid=new UpadateContentDaoImpl().updateNewsInfo(nid, title, content, author, is_publish, is_image,image_path,add_time);
 	    String rs;
 	    
 	    if(bid==true){

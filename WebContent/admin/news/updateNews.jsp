@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -9,12 +10,15 @@
 <title>修改内容-后台管理</title>
 <link href="${pageContext.request.contextPath}/admin/css/admin_header.css" rel="stylesheet" type="text/css" />
 <link href="${pageContext.request.contextPath}/admin/css/edit.css" rel="stylesheet" type="text/css" />
+<link href="${pageContext.request.contextPath}/admin/css/date.css" rel="stylesheet" type="text/css"/>
 <link href="${pageContext.request.contextPath}/admin/static/wangEditor/dist/css/wangEditor.min.css" rel="stylesheet" type="text/css"/>
 <link href="${pageContext.request.contextPath}/admin/static/uploadify/css/uploadify.css" rel="stylesheet" type="text/css"/>
-<script src="${pageContext.request.contextPath}/admin/static/uploadify/js/jquery-1.9.1.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/admin/js/jquery-1.8.3.js" type="text/javascript"></script>
 <script src="${pageContext.request.contextPath}/admin/static/layer-2.4/layer.js" type="text/javascript"></script>
 <script src="${pageContext.request.contextPath}/admin/static/uploadify/js/jquery.uploadify.min.js" type="text/javascript"></script>
 <script src="${pageContext.request.contextPath}/admin/js/common.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/admin/js/jquery.date_input.pack.js" type="text/javascript"></script>
+
 <script type="text/javascript">
 
     var CTPPATH="${pageContext.request.contextPath}";
@@ -210,6 +214,11 @@
 		<div class="options-checked-div" id="s">
 			<span class="publish-dept-span">发布部门</span>
 			<input type="text" name="publish_dept" class="publish-dept" value="${WEB_FOOTER_COPY}">
+		    <span class="publish-dept-span">发布时间</span>
+		    <div id="date-div">
+		   
+		    <input type="text"  class="date_picker" value="">
+		    </div>
 		    <span class="publish-dept-span">分类(${WEB_NEWS_NAVI})</span>
 		    <select name="publish_style" id="publish-style">
 		    	<option value="${type}"selected="true">${type_name}</option>
@@ -240,11 +249,61 @@
 </body>
 </html>
 <script type="text/javascript" src="${pageContext.request.contextPath}/admin/static/wangEditor/dist/js/wangEditor.js"></script>
+
+<script type="text/javascript">
+$('.date_picker').date_input();
+//时间     - 年月日
+function showLocale(){
+	var date = new Date();
+    var seperator1 = "-";
+    var month = date.getMonth() + 1;
+    var strDate = date.getDate();
+    if (month >= 1 && month <= 9) {
+        month = "0" + month;
+    }
+    if (strDate >= 0 && strDate <= 9) {
+        strDate = "0" + strDate;
+    }
+    
+    var hh = date.getHours();
+	if(hh<10) hh = '0' + hh;
+	var mm = date.getMinutes();
+	if(mm<10) mm = '0' + mm;
+	var ss = date.getSeconds();
+	if(ss<10) ss = '0' + ss;
+	
+	
+    var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate;
+    
+    return currentdate;
+}
+
+//时间  -时分秒
+function hms(){
+	var date = new Date();
+	var hh = date.getHours();
+	if(hh<10) hh = '0' + hh;
+	var mm = date.getMinutes();
+	if(mm<10) mm = '0' + mm;
+	var ss = date.getSeconds();
+	if(ss<10) ss = '0' + ss;
+	
+	var hms=hh+":"+mm+":"+ss;
+	return hms;
+}
+
+</script>
+
 <script type="text/javascript">
 
 //获得信息
 $(function(){
 	
+	//截取一下时间
+	var add_time = "<c:forEach items='${news_details}' var='news_details'>${news_details.add_time}</c:forEach>";
+	add_time = add_time.substr(0,10);
+	 $('.date_picker').val(add_time);
+	 
 	// 阻止输出log
     // wangEditor.config.printLog = false;
 
@@ -314,6 +373,9 @@ $(function(){
 		var content=editor.$txt.html();
 		//获取发布部门
 		var publish_dept=$('.publish-dept').val();
+		//获取发布时间
+		var date_picker=$('.date_picker').val();
+		date_picker=date_picker+" "+hms();
 		//获取内容的纯文本  
 		var text_content=editor.$txt.text();
 		//判断标题和内容是否为空
@@ -334,7 +396,7 @@ $(function(){
     			img_path="0";
     			
     		}
-    		s_json={"id":nid,"title":title,"content":content,"author":publish_dept,"is_image":is_image,"is_publish":is_publish,"image_path":img_path};
+    		s_json={"id":nid,"title":title,"content":content,"author":publish_dept,"is_image":is_image,"is_publish":is_publish,"image_path":img_path,"add_time":date_picker};
     		
 			$.ajax({
 				type:'post',
@@ -392,6 +454,9 @@ $(function(){
 		var content=editor.$txt.html();
 		//获取发布部门
 		var publish_dept=$('.publish-dept').val();
+		//获取发布时间
+		var date_picker=$('.date_picker').val();
+		date_picker=date_picker+" "+hms();
 		//获取内容的纯文本  
 		var text_content=editor.$txt.text();
 		//判断标题和内容是否为空
@@ -412,7 +477,7 @@ $(function(){
     			img_path="0";
     			
     		}
-    		s_json={"id":nid,"title":title,"content":content,"author":publish_dept,"is_image":is_image,"is_publish":is_publish,"image_path":img_path};
+    		s_json={"id":nid,"title":title,"content":content,"author":publish_dept,"is_image":is_image,"is_publish":is_publish,"image_path":img_path,"add_time":date_picker};
     		
 			$.ajax({
 				type:'post',

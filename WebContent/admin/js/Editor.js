@@ -180,6 +180,9 @@
         		var content=editor.$txt.html();
         		//获取发布部门
         		var publish_dept=$('.publish-dept').val();
+        		//获取发布时间
+        		var date_picker=$('.date_picker').val();
+        		date_picker=date_picker+" "+hms();
         		//获取内容的纯文本  
         		var text_content=editor.$txt.text();
         		//判断标题和内容是否为空
@@ -195,11 +198,11 @@
             		if(editor.$txt.find("img[src!='']").length>0){
             			is_image=1;
             			img_path=editor.$txt.find("img[src!='']:first").attr("src");
-            			s_json={"type":type,"title":title,"content":content,"author":publish_dept,"is_image":is_image,"is_publish":is_publish,"image_path":img_path};
+            			s_json={"type":type,"title":title,"content":content,"author":publish_dept,"is_image":is_image,"is_publish":is_publish,"image_path":img_path,"add_time":date_picker};
             		}else{
             			is_image=0;
             			img_path="0";
-            			s_json={"type":type,"title":title,"content":content,"author":publish_dept,"is_image":is_image,"is_publish":is_publish,"image_path":img_path};
+            			s_json={"type":type,"title":title,"content":content,"author":publish_dept,"is_image":is_image,"is_publish":is_publish,"image_path":img_path,"add_time":date_picker};
             		}
             		
         			$.ajax({
@@ -257,6 +260,9 @@
         		var content=editor.$txt.html();
         		//获取发布部门
         		var publish_dept=$('.publish-dept').val();
+        		//获取发布时间
+        		var date_picker=$('.date_picker').val();
+        		date_picker=date_picker+" "+hms();
         		//获取内容的纯文本  
         		var text_content=editor.$txt.text();
         		//判断标题和内容是否为空
@@ -272,10 +278,10 @@
             		if(editor.$txt.find("img[src!='']").length>0){
             			is_image=1;
             			img_path=editor.$txt.find("img[src!='']:first").attr("src");
-            			s_json={"type":type,"title":title,"content":content,"author":publish_dept,"is_image":is_image,"is_publish":is_publish,"image_path":img_path};
+            			s_json={"type":type,"title":title,"content":content,"author":publish_dept,"is_image":is_image,"is_publish":is_publish,"image_path":img_path,"add_time":date_picker};
             		}else{
             			is_image=0;
-            			s_json={"type":type,"title":title,"content":content,"author":publish_dept,"is_image":is_image,"is_publish":is_publish};
+            			s_json={"type":type,"title":title,"content":content,"author":publish_dept,"is_image":is_image,"is_publish":is_publish,"add_time":date_picker};
             		}
             		
         			$.ajax({

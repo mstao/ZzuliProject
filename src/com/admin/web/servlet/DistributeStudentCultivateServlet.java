@@ -1,7 +1,6 @@
 package com.admin.web.servlet;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,7 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.admin.dao.impl.AdminAllInfoDaoImpl;
 import com.home.dao.impl.FunctionDaoImpl;
-import com.home.web.service.NewsBean;
 import com.home.web.service.StudentCultivateBean;
 
 /**

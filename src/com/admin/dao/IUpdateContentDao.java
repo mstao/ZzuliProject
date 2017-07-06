@@ -9,7 +9,7 @@ public interface IUpdateContentDao {
     //更新实验室简介信息
 	boolean upadteIntroInfo(int id,String content,String author,int is_publish); 
     //更新新闻公告信息
-	boolean updateNewsInfo(int id,String title,String content,String author,int is_publish,int is_image,String image_path);
+	boolean updateNewsInfo(int id,String title,String content,String author,int is_publish,int is_image,String image_path,String add_time);
     //更新规章制度信息
 	boolean updateRuleInfo(int id ,String title,String content,String author,int is_publish);
     //更新科学研究信息

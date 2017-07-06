@@ -23,7 +23,8 @@ public class AddContentDaoImpl implements IAddContentDao {
 	 * 添加新闻公告信息
 	 */
 	@Override
-	public int AddNewsInfo(String type,String title,String content,String author,int is_publish,int is_image,String image_path) {
+	public int AddNewsInfo(String type,String title,String content,String author,int is_publish,int is_image,String image_path,
+			String add_time) {
 		// TODO Auto-generated method stub
 		
 		ResultSet rs=null;
@@ -31,7 +32,7 @@ public class AddContentDaoImpl implements IAddContentDao {
 		Connection con=DB.getConn();
 		int id = 0;		
 		//获取当前时间
-		String c_data=GetDateUtil.getData();
+		String c_data=add_time;
 		//根据类型获取类型id
 		int type_id=new AllTypeIdImpl().getNewsTypeId(type);
 		String sql="insert into sys_news(item_title,item_content,add_time,news_type_id,author,is_publish,is_image,image_path) values(?,?,?,?,?,?,?,?)";
